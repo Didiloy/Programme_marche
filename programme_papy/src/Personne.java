@@ -29,8 +29,12 @@ public class Personne{
     public double getTourTaille(){
         return this.tourTaille;
     }
-
+    
     public String toString(){
+        return (this.nom + "\n" + this.prenom + "\n" + this.age);
+    }
+    
+    public String toString(int etendu){
         return ("Nom: " + this.nom + "\n" + "Prénom: " + this.prenom + "\n" + "age: " + this.age + "\n" + "Tour de taille " + this.tourTaille + "\n");
     }
 }

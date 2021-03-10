@@ -90,8 +90,6 @@ public class Main{
 			SwingUtilities.invokeLater(new Runnable(){
 				public void run(){
 					FrameUnreg frame = new FrameUnreg("Programme de Marche");
-					Personne p1 = new Personne(frame.getNom(), frame.getPrenom(), frame.getAge());
-					System.out.println(p1.toString());
 				}
 			});
 		}

@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 
 public class FrameUnreg extends JFrame implements ActionListener{
 	private  JLabel nom = new JLabel("Entrez votre nom: ");
@@ -10,9 +11,10 @@ public class FrameUnreg extends JFrame implements ActionListener{
 	private  JLabel age = new JLabel("Entrez votre age: ");
 	private  JTextField textFieldAge = new JTextField(3);
 	private  JButton button = new JButton("OK");
-	private String userNom;
-	private String userPrenom;
-	private int userAge;
+	private static String userNom;
+	private static String userPrenom;
+	private static int userAge;
+	private static Personne p1;
 	private static final long serialVersionUID = 1L;
 
 	public FrameUnreg(String nom_fenetre){
@@ -24,6 +26,7 @@ public class FrameUnreg extends JFrame implements ActionListener{
 		Image icon = new ImageIcon("image/marche.jpg").getImage(); // J'ajoute l'icone de l'app
 		setIconImage(icon);//Je met l'icone
 		getContentPane().setBackground(Color.LIGHT_GRAY);
+		button.addActionListener(this);
 		
 		setLayout(new GridBagLayout());
 		GridBagConstraints constraint = new GridBagConstraints();
@@ -65,6 +68,10 @@ public class FrameUnreg extends JFrame implements ActionListener{
 		userNom = textFieldNom.getText();
 		userPrenom = textFieldPrenom.getText();
 		userAge = Integer.parseInt(textFieldAge.getText());
+		p1 = new Personne(userNom, userPrenom, userAge);
+		System.out.println(p1.toString(1)); //recup les infos. a changer
+		ecrireFichier();
+		
 	}
 	
 	public String getNom() {
@@ -77,6 +84,22 @@ public class FrameUnreg extends JFrame implements ActionListener{
 	
 	public int getAge() {
 		return userAge;
+	}
+	public String getUser() {
+		return p1.toString();
+	}
+	
+	public void ecrireFichier() {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter("donnee/utilisateur.txt"));//On choisi le fichier dans lequel on écrit
+			bw.write(p1.toString());//On écrit
+			bw.close();
+		}
+		catch (IOException e)//Si il y a une erreur on la récupère.
+		{
+			//Print the error message
+			System.out.print(e.getMessage());
+		}
 	}
 
 }
