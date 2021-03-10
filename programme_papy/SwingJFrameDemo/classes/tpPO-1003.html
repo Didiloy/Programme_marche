@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+            "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+
+
+
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META name="GENERATOR" content="hevea 1.08">
+<LINK rel="stylesheet" type="text/css" href="tpPO-1.css">
+<TITLE>
+TP1: Utilisation d'une API (auteur: J F Remm)
+</TITLE>
+</HEAD>
+<BODY >
+<A HREF="tpPO-1002.html"><IMG SRC ="previous_motif.gif" ALT="Previous"></A>
+<A HREF="index.html"><IMG SRC ="contents_motif.gif" ALT="Up"></A>
+
+<HR>
+
+<H2 CLASS="section"><A NAME="htoc2">1</A>&nbsp;&nbsp;Utilisation d'une API</H2>
+une API (<EM>Application Programming Interface</EM>) ou interface de
+programmation pour les applications comprend toutes les méthodes et
+les variables utilisables pour les programmeurs pour écrire leurs
+applications. l'API d'une classe décrit un objet et la manière de
+le manipuler.<BR>
+<BR>
+<A NAME="toc1"></A>
+<H3 CLASS="subsection"><A NAME="htoc3">1.1</A>&nbsp;&nbsp;Principes d'utilisation</H3>
+L'<EM>Application Program Interface</EM> standard est l'ensemble des
+bibliothèques mises à votre disposition en Java. Les APIs sont disponibles
+sur :<BR>
+<BR>
+<A HREF="https://docs.oracle.com/javase/8/docs/api/"><TT>https://docs.oracle.com/javase/8/docs/api/</TT></A>
+Rappels : 
+<UL CLASS="itemize"><LI CLASS="li-itemize">
+la première étape est de <B>déclarer</B> une instance d'objet,
+<LI CLASS="li-itemize">avant d'utiliser une méthode sur une instance d'objet, il FAUT <B>construire</B>
+cette instance (par une clause <TT>new</TT>), 
+<LI CLASS="li-itemize">pour <B>utiliser une méthode</B> d'une classe, il faut l'appliquer
+à une instance d'un objet de cette classe. Exemple : <TT>maString.methodeDeString(params)</TT>, 
+<LI CLASS="li-itemize">faire attention aux <B>types des paramètres</B> et au <B>type
+de retour</B> de la méthode, 
+<LI CLASS="li-itemize">bref, le principe c'est de respecter les signatures des méthodes et
+de suivre la procédure déclaration/construction/utilisation des objets. 
+</UL>
+
+<H4 CLASS="subsubsection"><A NAME="htoc4">1.1.1</A>&nbsp;&nbsp;Exemple de l'API d'une classe <TT>Bidon</TT></H4>
+Une classe <TT>Bidon.java</TT> a été réalisée, comprenant des constructeurs
+d'objets et des méthodes s'appliquant sur ces objets :<BR>
+<PRE CLASS="verbatim">
+public class Bidon ...
+// Constructeurs
+public Bidon(int a, int b);
+</PRE>Le constructeur, du nom de la classe, prend en paramètre deux entiers.
+<PRE CLASS="verbatim">
+//méthodes
+public int bidule(String c);
+</PRE>renvoie un entier comme résultat, prend une <TT>String</TT> en paramètre.<BR>
+<BR>
+
+<H4 CLASS="subsubsection"><A NAME="htoc5">1.1.2</A>&nbsp;&nbsp;Exemple d'utilisation de la classe <TT>Bidon</TT></H4>
+On peut vouloir utiliser la classe <TT>Bidon.java</TT> en instanciant
+des objets de cette classe et en appliquant certaines méthodes sur
+ces objets. On va pour cela, créer une classe <TT>TestBidon.java</TT>
+comprenant : 
+<UL CLASS="itemize"><LI CLASS="li-itemize">
+<B>déclaration</B> de ma variable <TT>monObjet</TT> de type <TT>Bidon</TT>
+</UL>
+<DIV CLASS="flushleft"><DL CLASS="list" COMPACT="compact"><DT CLASS="dt-list"><DD CLASS="dd-list"><TT>
+Bidon&nbsp;monObjet;
+</TT></DL></DIV>
+<UL CLASS="itemize"><LI CLASS="li-itemize">
+<B>construction</B> en donnant des valeurs aux deux entiers requis
+par le constructeur
+</UL>
+<DIV CLASS="flushleft"><DL CLASS="list" COMPACT="compact"><DT CLASS="dt-list"><DD CLASS="dd-list"><TT>
+monObjet&nbsp;=&nbsp;new&nbsp;Bidon(2,3);
+</TT></DL></DIV>
+<UL CLASS="itemize"><LI CLASS="li-itemize">
+<B>appel</B> de la méthode <TT>bidule</TT> ; on stocke le résultat
+dans une variable de type <TT>int</TT>, on donne une chaîne de caractères
+en paramètre.
+</UL>
+<DIV CLASS="flushleft"><DL CLASS="list" COMPACT="compact"><DT CLASS="dt-list"><DD CLASS="dd-list"><TT>
+int&nbsp;entier;<BR>
+<BR>
+entier&nbsp;=&nbsp;monObjet.bidule("bonjour");
+</TT></DL></DIV>
+<A NAME="toc2"></A>
+<H3 CLASS="subsection"><A NAME="htoc6">1.2</A>&nbsp;&nbsp;<TT>Vehicule</TT></H3>
+Vous disposez d'une API en <SPAN STYLE="font-variant:small-caps">français</SPAN> documentant la classe
+<A HREF="Vehicule.html"><TT>Vehicule</TT></A> (penser à recopier <A HREF="Vehicule.class"><TT>Vehicule.class</TT></A>
+dans votre répertoire <i> class </i>). Réaliser ce qui suit dans un fichier
+<TT>testVehicule.java</TT> stocké dans <i>src</i>
+<UL CLASS="itemize"><LI CLASS="li-itemize">
+créer une voiture de couleur rouge à quatre roues ne pouvant dépasser
+180km/h, l'afficher 
+<LI CLASS="li-itemize">démarrer la voiture, la faire accélérer de 50km/h, afficher la voiture 
+<LI CLASS="li-itemize">la faire accélérer de 40km/h. 
+<LI CLASS="li-itemize">faire afficher sa vitesse 
+<LI CLASS="li-itemize">créer un autre véhicule 
+<LI CLASS="li-itemize">démarrer, accélérer, ... 
+<LI CLASS="li-itemize">comparer les vitesses des deux véhicules. 
+<LI CLASS="li-itemize">... 
+</UL>
+<A NAME="toc3"></A>
+<H3 CLASS="subsection"><A NAME="htoc7">1.3</A>&nbsp;&nbsp;<TT>Point</TT></H3>
+Vous disposez d'une API en <SPAN STYLE="font-variant:small-caps">français</SPAN> documentant la classe
+<A HREF="Point.html"><TT>Point</TT></A> (penser à recopier <A HREF="Point.class"><TT>Point.class</TT></A>
+dans le répertoire <i>class </i>). Réaliser ce qui suit dans un fichier
+<TT>TestPoint.java.</TT> stocké dans <i>src</i>
+<UL CLASS="itemize"><LI CLASS="li-itemize">
+Créer un <TT>Point</TT> p1 initialisé à (0,0), l'afficher. 
+<LI CLASS="li-itemize">Créer un <TT>Point</TT> p2 initialisé à (1,2), l'afficher. 
+<LI CLASS="li-itemize">Afficher la coordonnée x de p1, puis de p2. 
+<LI CLASS="li-itemize">Modifier la coordonnée y de p2 en y affectant la valeur 3 , afficher
+p2. 
+<LI CLASS="li-itemize">Translater p2 de 1 en x et de 1 en y, afficher p2. 
+<LI CLASS="li-itemize">Déplacer p1 en (2,10), l'afficher. 
+<LI CLASS="li-itemize">Calculer la distance de p2 à l'origine, l'afficher. 
+<LI CLASS="li-itemize">Calculer la distance entre p1 et p2, l'afficher. 
+<LI CLASS="li-itemize">Affecter p1 à p2, afficher les deux. 
+<LI CLASS="li-itemize">Translater p1 de 2,1, afficher p1 et p2 (surpris(e) ?) 
+</UL>
+<A NAME="toc4"></A>
+<H3 CLASS="subsection"><A NAME="htoc8">1.4</A>&nbsp;&nbsp;<TT>String</TT> et <TT>StringBuffer</TT></H3>
+
+<H4 CLASS="subsubsection"><A NAME="htoc9">1.4.1</A>&nbsp;&nbsp;Principe</H4>
+L'objet <TT>String</TT> décrit une chaîne de caractères, non modifiable,
+de taille fixe. En d'autres termes, dès qu'une <TT>String</TT> est
+créé, elle devient non modifiable. La String est le seul objet à pourvoir
+ere créé sans appel explicite du constructeur :
+<DIV CLASS="flushleft"><DL CLASS="list" COMPACT="compact"><DT CLASS="dt-list"><DD CLASS="dd-list"><TT>
+String&nbsp;s&nbsp;=&nbsp;&#8220;bonjour&#8221;;
+</TT></DL></DIV>
+Ceci est du au caractère &#8220;incontournable&#8221; des objets chaînes
+de caractère.<BR>
+<BR>
+L'objet <TT>StringBuffer</TT> décrit une chaîne de caractères, modifiable,
+de taille variable, ce qui permet d'insérer des caractères à une position,
+de rajouter des caractères en fin, ...<BR>
+Ces deux classes sont deux classes de la bibliothèque standard de
+Java. La documentation de ces classes se trouve donc dans l'API standard
+(en anglais).<BR>
+<BR>
+
+<H4 CLASS="subsubsection"><A NAME="htoc10">1.4.2</A>&nbsp;&nbsp;Réalisations</H4>
+<UL CLASS="itemize"><LI CLASS="li-itemize">
+Créer une <TT>String</TT> initialisée à "anticonstitutionnellement". 
+<LI CLASS="li-itemize">Quelle est la longueur de cette <TT>String</TT> ? (faire afficher
+le résultat). 
+<LI CLASS="li-itemize">Afficher le troisième caractère. 
+<LI CLASS="li-itemize">Extraire la sous-chaîne allant du deuxième caractère au quatrième,
+l'afficher. 
+<LI CLASS="li-itemize">Passer la <TT>String</TT> du départ en majuscule. 
+<LI CLASS="li-itemize">Faire écrire ce résultat et la <TT>String</TT> originale. 
+<LI CLASS="li-itemize">Afficher la première et la dernière position du caractère <TT>'n'</TT>
+dans la <TT>String</TT>. Que se passe-t-il, si on demande la position
+d'un caractère non présent dans la chaîne ? 
+<LI CLASS="li-itemize">Créer un nouvelle <TT>String</TT> initialisée à <TT>bonjour</TT>. 
+<LI CLASS="li-itemize">Créer une <TT>StringBuffer</TT> à partir de la <TT>String</TT> précédente. 
+<LI CLASS="li-itemize">Concaténer " le monde", faire afficher la <TT>StringBuffer</TT>
+résultat. 
+<LI CLASS="li-itemize">Insérer " tout" à la position 7, faire afficher
+la <TT>StringBuffer</TT> résultat. 
+<LI CLASS="li-itemize">Créer trois <TT>String</TT> s1, s2 et s3 en appelant <B>explicitement</B>
+le constructeur (<CODE>String s = new String("ma chaine");</CODE>). Les
+trois valeurs d'initialisation sont <TT>bonjour</TT>, <TT>bonjour</TT>,
+et <TT>Bonjour</TT>. Comparer s1 à s2 et s1 à s3 en utilisant successivement
+l'opérateur <TT>==</TT> , la méthode <TT>equals()</TT> et la méthode
+<TT>equalsIgnoreCase()</TT>. Résultat ?
+</UL>
+<A NAME="toc5"></A>
+<H3 CLASS="subsection"><A NAME="htoc11">1.5</A>&nbsp;&nbsp;<TT>Date</TT></H3>
+
+<H4 CLASS="subsubsection"><A NAME="htoc12">1.5.1</A>&nbsp;&nbsp;Introduction</H4>
+La classe <TT>Date</TT> permet de manipuler des dates. Cette classe
+fait partie du paquetage <TT>java.util</TT>. Il faut donc mettre <TT>import
+java.util.*;</TT> en première ligne d'un fichier qui veut utiliser cette
+classe. Certaines méthodes de cette classe sont dépréciés, mais nous
+allons tout de même l'utiliser. Sa remplaçante présente (pédagogiquement
+parlé) beaucoup moins d'intérêts. Il ne faut donc pas s'inquiéter
+de messages comme : 
+<DIV CLASS="flushleft"><DL CLASS="list" COMPACT="compact"><DT CLASS="dt-list"><DD CLASS="dd-list"><TT>
+Note:&nbsp;TestDate.java&nbsp;uses&nbsp;or&nbsp;overrides&nbsp;a&nbsp;deprecated&nbsp;API.&nbsp;<BR>
+<BR>
+Note:&nbsp;Recompile&nbsp;with&nbsp;-Xlint:deprecation&nbsp;for&nbsp;details.
+</TT></DL></DIV>
+
+
+
+<H4 CLASS="subsubsection"><A NAME="htoc13">1.5.2</A>&nbsp;&nbsp;Réalisation</H4>
+<UL CLASS="itemize"><LI CLASS="li-itemize">
+Créer une date initialisée à la date du jour 
+<LI CLASS="li-itemize">L'afficher 
+<LI CLASS="li-itemize">Afficher le mois, 
+<LI CLASS="li-itemize">Modifier l'année en 1999, afficher la date 
+<LI CLASS="li-itemize">Créer une date initialisée à votre date de naissance, l'afficher 
+<LI CLASS="li-itemize">Comparer ces deux dates. 
+</UL>
+<HR>
+<A HREF="tpPO-1002.html"><IMG SRC ="previous_motif.gif" ALT="Previous"></A>
+<A HREF="index.html"><IMG SRC ="contents_motif.gif" ALT="Up"></A>
+
+</BODY>
+</HTML>
