@@ -6,37 +6,6 @@ import javax.swing.SwingUtilities;
 public class Main{
 
 	public static void main (String[] args) {
-
-		//Scanner scan = new Scanner(System.in);//Démarrer le scanner qui permet de récup ce qu'on écrit en terminal
-
-		////////////Créer une personne/////////////////:
-		// System.out.println("entre nom,  prenom, age");
-		// String nom = scan.nextLine();//Scanner les infos
-		// String prenom = scan.nextLine();
-		// int age = scan.nextInt();
-		// // scan.close();
-		// Personne p1;
-		// p1 = new Personne(nom, prenom, age);//Mettre les infos scannées dans une personne
-		// System.out.println(p1.toString());
-		// System.out.println("\n Maintenant on modifie le tour de taille: entre ton tour de taille \n");
-		// double tourTaille = scan.nextDouble();
-		// p1.setTourTaille(tourTaille);
-		// System.out.println(p1.toString());
-		//////////////////////////////////////////////
-
-		//////////Créer une marche///////////////////
-		// // Scanner scan = new Scanner(System.in);
-		// System.out.println("Entre la distance marchée en km (ex: 5,2), le temps en minutes (ex:130) et la date au format dd/mm/yyyy");
-		// double distance = scan.nextDouble();//Scanner les infos
-		// int temps = scan.nextInt();
-		// String date = scan.next();
-		// date += scan.nextLine();
-		// // scan.close();
-		// Marche m1;
-		// m1 = new Marche( distance, temps, date);//Mettre les infos dans une marche
-		// System.out.println(m1.toString());
-		/////////////////////////////////////////////
-
 		/////////////////Écrire dans un fichier////////
 		// try {
 		//     BufferedWriter bw = new BufferedWriter(new FileWriter("donnee/utilisateur.txt"));//On choisi le fichier dans lequel on écrit
