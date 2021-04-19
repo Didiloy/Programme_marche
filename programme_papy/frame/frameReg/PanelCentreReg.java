@@ -5,10 +5,14 @@ import frame.frameReg.fonctions.FonctionNouveauPoids;
 import frame.frameReg.fonctions.FonctionNouveauTourTaille;
 import frame.frameReg.fonctions.FonctionNouvelleMarche;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class PanelCentreReg implements ActionListener {
     JPanel conteneurPanelCentre = new JPanel();
@@ -22,19 +26,46 @@ public class PanelCentreReg implements ActionListener {
     public PanelCentreReg(){
         conteneurPanelCentre.setLayout(cl);
 		panelCentre.setBackground(Color.LIGHT_GRAY);
-        panelCentre.setLayout(new GridLayout(10, 1, 5, 5));
+        panelCentre.setLayout(new BorderLayout());
+//        panelCentre.setLayout(new GridLayout(10, 1, 5, 5));
 
+        JPanel panelCentreCentre = new JPanel(new GridLayout(1, 2, 1, 1));
+        ///Panel au centre du panel du centre
+            //Gauche
+                JPanel panelCentreCentreGauche = new JPanel(new BorderLayout(1, 1));
+                Image imageEnregistrerPoids = new ImageIcon("programme_papy/image/enregistrerPoids.jpg").getImage();
+                ImageIcon img = new ImageIcon(new ImageIcon(imageEnregistrerPoids).getImage().getScaledInstance(425, 340, Image.SCALE_DEFAULT));
+                JLabel labelImageEnregistrerPoids = new JLabel();
+                labelImageEnregistrerPoids.setIcon(img);;//Mettre l'image dans un label pour l'afficher
+                panelCentreCentreGauche.add(labelImageEnregistrerPoids, BorderLayout.NORTH);
+                JButton boutonPoidsVisible = new JButton("Enregistrer un nouveau poids");
+                panelCentreCentreGauche.add(boutonPoidsVisible, BorderLayout.SOUTH);
+                boutonPoidsVisible.addActionListener(listenerBoutonPoidsVisible);
+                panelCentreCentre.add(panelCentreCentreGauche);
+
+            //Droite
+                JPanel panelCentreCentreDroite = new JPanel(new BorderLayout(1, 1));
+                Image imageEnregistrerTaille = new ImageIcon("programme_papy/image/enregistrerTourTaille.jpg").getImage();
+                ImageIcon img2 = new ImageIcon(new ImageIcon(imageEnregistrerTaille).getImage().getScaledInstance(425, 340, Image.SCALE_DEFAULT));
+                JLabel labelImageEnregistrerTaille = new JLabel();
+                labelImageEnregistrerTaille.setIcon(img2);//Mettre l'image dans un label pour l'afficher
+                panelCentreCentreDroite.add(labelImageEnregistrerTaille, BorderLayout.NORTH);
+                JButton boutonTourTailleVisible = new JButton("Enregistrer un nouveau tour de taille");
+                panelCentreCentreDroite.add(boutonTourTailleVisible, BorderLayout.SOUTH);
+                boutonTourTailleVisible.addActionListener(listenerBoutonTourTailleVisible);
+                panelCentreCentre.add(panelCentreCentreDroite);
+        /////////////////////////////////////
+        panelCentre.add(panelCentreCentre, BorderLayout.CENTER);
+
+        ////Panel au sud du panel du centre
+        JPanel panelSud = new JPanel(new FlowLayout());
+        panelSud.setPreferredSize(new Dimension(200, 200));
         JButton boutonMarcheVisible = new JButton("Enregistrer une marche");
-        panelCentre.add(boutonMarcheVisible);
+        panelSud.add(boutonMarcheVisible);
         boutonMarcheVisible.addActionListener(listenerBoutonMarcheVisible);
+        panelCentre.add(panelSud, BorderLayout.SOUTH);
+        //////////////////////////////////
 
-        JButton boutonPoidsVisible = new JButton("Enregistrer un nouveau poids");
-        panelCentre.add(boutonPoidsVisible);
-        boutonPoidsVisible.addActionListener(listenerBoutonPoidsVisible);
-
-        JButton boutonTourTailleVisible = new JButton("Enregistrer un nouveau tour de taille");
-        panelCentre.add(boutonTourTailleVisible);
-        boutonTourTailleVisible.addActionListener(listenerBoutonTourTailleVisible);
         conteneurPanelCentre.add(panelCentre, "panelCentre");
         cl.show(conteneurPanelCentre, "panelCentre"); //Montrer ce panel de base au centre
 
