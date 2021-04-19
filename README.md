@@ -16,11 +16,10 @@ DATE DE DEBUT: 08/03/2021
 - afficher poid
 - afficher tour de taille
 - ajouter bordures aux panels de la droite
-
+- Les listeners pour boutons visible panel centre
 
 # A faire 
 
-- Les listeners pour boutons visible panel centre
 - Moyenne des kilometres marchés par marche.
 - Total des kilomètres marchés
 - Total du temps marché
