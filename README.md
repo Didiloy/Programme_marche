@@ -17,11 +17,13 @@ DATE DE DEBUT: 08/03/2021
 - afficher tour de taille
 - ajouter bordures aux panels de la droite
 - Les listeners pour boutons visible panel centre
-
-# A faire 
-
 - Moyenne des kilometres marchés par marche.
 - Total des kilomètres marchés
 - Total du temps marché
+
+# A faire
+- Total distance marche, temps marche, moyenne poids, moyenne temps marche, sont développés mais ne sont pas encore utilisés dans l'application.
+- Graphique pour les dernières marches
+- Graphique pour les derniers poids  
 - fermer fenetre unreg apres s'etre enregistré.
 - Latex  pour manuel d'utilisation du logiciel.
