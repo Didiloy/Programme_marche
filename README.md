@@ -20,6 +20,7 @@ DATE DE DEBUT: 08/03/2021
 - Moyenne des kilometres marchés par marche.
 - Total des kilomètres marchés
 - Total du temps marché
+- Cliqué sur les images font la meme chose que clique sur les boutons dans le panel centre de frame reg
 
 # A faire
 - Total distance marche, temps marche, moyenne poids, moyenne temps marche, sont développés mais ne sont pas encore utilisés dans l'application.
