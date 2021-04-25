@@ -1,8 +1,8 @@
-import javax.swing.*;
-import java.io.*;
+import frame.frameReg.FrameReg;
+import frame.frameUnreg.FrameUnreg;
 
-import frame.frameReg.*;
-import frame.frameUnreg.*;
+import javax.swing.*;
+import java.io.File;
 
 public class Main{
 
