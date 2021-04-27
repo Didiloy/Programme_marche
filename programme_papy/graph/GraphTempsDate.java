@@ -11,9 +11,11 @@ import org.jfree.data.xy.XYDataset;
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class GraphTempsDate {
     ChartPanel cp;
+    double tableauTempsDate[][] = new double[GetLigneMarche()][2];
     public GraphTempsDate() {
         JFreeChart chart =
                 ChartFactory.createXYLineChart("Temps Marché",
@@ -21,12 +23,11 @@ public class GraphTempsDate {
                         false);
         cp = new ChartPanel(chart);
     }
-    private XYDataset createDataset() {
+    public XYDataset createDataset() {
 
         DefaultXYDataset ds = new DefaultXYDataset();
         File f = new File("programme_papy/donnee/marche.txt");
         Double[] tempsMarche = new Double[GetLigneMarche()];
-        String[] Date = new String[GetLigneMarche()];
         String [] tmp;
         if (f.isFile()) {
             InputStreamReader streamReader = null;
@@ -39,7 +40,6 @@ public class GraphTempsDate {
                     line = br.readLine();
                     tmp = line.split(",");
                     tempsMarche[i] = Double.parseDouble(tmp[1]);
-                    Date[i] = tmp[2];
                     i += 1;
                 }
                 br.close();
@@ -50,9 +50,14 @@ public class GraphTempsDate {
         //LA j'ai rempli tempsMarché avec le temps en format double et Date avec la date en format String.
         //Faut trouver un moyen de mettre ça dans le DefaultXYDataset.
         //https://www.jfree.org/jfreechart/javadoc/org/jfree/data/xy/DefaultXYDataset.html#addSeries(java.lang.Comparable,double%5B%5D%5B%5D)
-
-
-
+        FonctionTableauDate date = new FonctionTableauDate();
+        Date tableauDate[] = date.tableauDate;
+        for (int ligne = 0; ligne < GetLigneMarche(); ligne ++){
+            tableauTempsDate[ligne][0] = tempsMarche[ligne];
+//            tableauTempsDate[ligne][1] = tableauDate[ligne];
+            tableauTempsDate[ligne][1] = ligne;
+        }
+        ds.addSeries("serie1", tableauTempsDate);
         return ds;
     }
     public ChartPanel getCharPanel(){

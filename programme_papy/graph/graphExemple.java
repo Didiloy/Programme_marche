@@ -24,8 +24,10 @@ public class graphExemple extends JFrame {
             DefaultXYDataset ds = new DefaultXYDataset();
 
             double[][] data = { {0.1, 0.2, 0.3}, {1, 2, 3} };
+            double[][] data2 = { {0.5, 0.6, 0.7}, {2, 2, 3} };
 
             ds.addSeries("series1", data);
+            ds.addSeries("series2", data2);
 
             return ds;
         }
@@ -42,7 +44,9 @@ public class graphExemple extends JFrame {
         frame.getContentPane().setBackground(Color.LIGHT_GRAY);
         frame.setLayout(new BorderLayout());
         graphExemple graph = new graphExemple();
-        frame.add(graph.getCharPanel(), BorderLayout.CENTER);
+        GraphTempsDate graphTempsDate = new GraphTempsDate();
+//        frame.add(graph.getCharPanel(), BorderLayout.CENTER);
+        frame.add(graphTempsDate.getCharPanel(), BorderLayout.CENTER); // je test le  graph fait dans GraphTempsDate
 
         frame.setVisible(true);
     }
