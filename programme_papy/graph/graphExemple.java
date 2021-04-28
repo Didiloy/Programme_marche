@@ -46,7 +46,9 @@ public class graphExemple extends JFrame {
         graphExemple graph = new graphExemple();
         GraphTempsDate graphTempsDate = new GraphTempsDate();
 //        frame.add(graph.getCharPanel(), BorderLayout.CENTER);
-        frame.add(graphTempsDate.getCharPanel(), BorderLayout.CENTER); // je test le  graph fait dans GraphTempsDate
+//        frame.add(graphTempsDate.getCharPanel(), BorderLayout.CENTER); // je test le  graph fait dans GraphTempsDate
+        GraphDistanceDate graphDistanceDate = new GraphDistanceDate();
+        frame.add(graphDistanceDate.getCharPanel(), BorderLayout.CENTER);
 
         frame.setVisible(true);
     }

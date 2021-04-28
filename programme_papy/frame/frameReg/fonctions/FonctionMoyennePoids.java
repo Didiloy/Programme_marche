@@ -35,4 +35,5 @@ public class FonctionMoyennePoids {
     public float getMoyenne() {
         return somme/nbElement;
     }
+    public int getNbElement(){return (int) nbElement;}
 }

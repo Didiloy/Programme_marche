@@ -1,26 +1,20 @@
 package graph;
 
-import frame.frameReg.fonctions.DerniereLigneFichier;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.xy.DefaultXYDataset;
-import org.jfree.data.xy.XYDataset;
 
-import javax.swing.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Date;
 
-public class GraphTempsDate {
+public class GraphDistanceDate {
     ChartPanel cp;
-    public GraphTempsDate() {
+    public GraphDistanceDate() {
 
         JFreeChart chart = ChartFactory.createLineChart(
-                "Évolution du temps de marche",
-                "Date","Temps marché",
+                "Évolution de la distance de marche",
+                "Date","Distance marché",
                 createDataset(),
                 PlotOrientation.VERTICAL,
                 true,true,false);
@@ -43,7 +37,7 @@ public class GraphTempsDate {
                 while (br.ready()) {
                     line = br.readLine();
                     tmp = line.split(",");
-                    tempsMarche[i] = Double.parseDouble(tmp[1]);
+                    tempsMarche[i] = Double.parseDouble(tmp[0]);
                     date[i] = tmp[2];
                     i += 1;
                 }
@@ -54,7 +48,7 @@ public class GraphTempsDate {
         }
 
         for (int i = 0; i< GetLigneMarche(); i++){
-            ds.addValue(tempsMarche[i], "Temps marché", date[i]); //J'ajoute les valeurs à utilisé dans la courbe
+            ds.addValue(tempsMarche[i], "Distance marché", date[i]); //J'ajoute les valeurs à utilisé dans la courbe
         }
         return ds;
     }

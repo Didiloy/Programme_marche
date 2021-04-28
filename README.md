@@ -21,10 +21,10 @@ DATE DE DEBUT: 08/03/2021
 - Total des kilomètres marchés
 - Total du temps marché
 - Cliqué sur les images font la meme chose que clique sur les boutons dans le panel centre de frame reg
+- Graphique pour les dernières marches, trouver un moyen de mettre la date en x Axis
 
 # A faire
 - Total distance marche, temps marche, moyenne poids, moyenne temps marche, sont développés mais ne sont pas encore utilisés dans l'application.
-- Graphique pour les dernières marches, trouver un moyen de mettre la date en x Axis
 - Graphique pour les derniers poids  
 - fermer fenetre unreg apres s'etre enregistré.
 - Latex  pour manuel d'utilisation du logiciel.
