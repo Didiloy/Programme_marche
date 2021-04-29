@@ -1,10 +1,17 @@
 package frame.frameReg.fonctions;
+import frame.frameReg.fonctions.*;
+import frame.frameReg.FrameReg;
+import graph.GraphDistanceDate;
+import graph.GraphTempsDate;
+import frame.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+
+import static frame.frameReg.FrameReg.panelReg;
 
 public class FonctionDerniereMarche implements ActionListener {
     JPanel ancienneMarche = new JPanel();
@@ -86,10 +93,53 @@ public class FonctionDerniereMarche implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        FrameReg.setPanel(getGraphMarche());
+    }
 
+    public JPanel getGraphMarche(){
+        JPanel panelAnciennesMarches = new JPanel(new BorderLayout());
+        JPanel panelCentreAnciennesMarches = new JPanel(new GridLayout(1, 2, 2, 2));
+        JPanel panelSudAnciennesMarches = new JPanel();
+
+        GraphDistanceDate graphDistanceDate = new GraphDistanceDate();
+        GraphTempsDate graphTempsDate = new GraphTempsDate();//J'ajoute le premier graph au panel.
+        panelCentreAnciennesMarches.add(graphDistanceDate.getCharPanel());
+        panelCentreAnciennesMarches.add(graphTempsDate.getCharPanel());//J'ajoute le 2eme graph au panel
+        panelAnciennesMarches.add(panelCentreAnciennesMarches, BorderLayout.CENTER); //J'ajoute le panel des graphs au panel
+
+        panelSudAnciennesMarches.setPreferredSize(new Dimension(100, 150));
+        panelSudAnciennesMarches.setBackground(Color.LIGHT_GRAY);
+        panelSudAnciennesMarches.setLayout(new GridLayout(4, 1));
+        try {
+            FonctionMoyenneTempsMarche tempsMoyen = new FonctionMoyenneTempsMarche();
+            JLabel labelTempsMoyen = new JLabel("En moyenne vous marchez "+  tempsMoyen.getHeure() + " heures " + tempsMoyen.getMinute()+ " minutes.");
+            FonctionTotalDistanceMarche totaleDistance = new FonctionTotalDistanceMarche();
+            JLabel labelTotaleDistance = new JLabel("Vous avez marché sur une distance totale de "+ totaleDistance.getSomme() + "kms.");
+            FonctionTotalTempsMarche totalTempsMarche = new FonctionTotalTempsMarche();
+            JLabel labelTotalTemps = new JLabel("Vous avez marchés un temps total de "+ totalTempsMarche.getHeures() + " heures "+ totalTempsMarche.getMinutes() + " minutes.");
+            JButton boutonRetour = new JButton("retour à l'acceuil");
+            boutonRetour.addActionListener(listenerBoutonRetour);
+            panelSudAnciennesMarches.add(labelTotaleDistance);
+            panelSudAnciennesMarches.add(labelTempsMoyen);
+            panelSudAnciennesMarches.add(labelTotalTemps);
+            panelSudAnciennesMarches.add(boutonRetour);
+
+            panelAnciennesMarches.add(panelSudAnciennesMarches, BorderLayout.SOUTH);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return panelAnciennesMarches;
     }
 
     public JPanel getAncienneMarche(){
         return ancienneMarche;
     }
+
+    ActionListener listenerBoutonRetour = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            FrameReg.setPanel(panelReg);
+        }
+    };
 }

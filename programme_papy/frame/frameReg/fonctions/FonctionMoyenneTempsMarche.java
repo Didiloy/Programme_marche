@@ -37,6 +37,10 @@ public class FonctionMoyenneTempsMarche {
         return somme/nbElement;
     }
 
+    public int getHeure(){return (int) ((somme/nbElement)/60);}
+
+    public int getMinute(){return (int) ((somme/nbElement)%60);}
+
     ///////TEST////////////////
 //    public static void main(String[] args) throws IOException {
 //        FonctionMoyenneTempsMarche test = new FonctionMoyenneTempsMarche();

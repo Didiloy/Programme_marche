@@ -1,6 +1,7 @@
 package frame.frameReg;
 
 
+import frame.frameReg.fonctions.FonctionDerniereMarche;
 import frame.frameReg.fonctions.FonctionNouveauPoids;
 import frame.frameReg.fonctions.FonctionNouveauTourTaille;
 import frame.frameReg.fonctions.FonctionNouvelleMarche;
@@ -24,6 +25,7 @@ public class PanelCentreReg implements ActionListener, MouseListener {
     JPanel nouvelleMarche;
     JPanel nouveauPoids;
     JPanel nouveauTourTaille;
+    JPanel graphMarche;
 
     public PanelCentreReg(){
         conteneurPanelCentre.setLayout(cl);
@@ -91,6 +93,9 @@ public class PanelCentreReg implements ActionListener, MouseListener {
 
         FonctionNouveauTourTaille tmp3 = new FonctionNouveauTourTaille();
         nouveauTourTaille = tmp3.getNouveauTourTaille();
+
+        FonctionDerniereMarche tmp4 = new FonctionDerniereMarche();
+        graphMarche = tmp4.getGraphMarche();
         //////////////////////////////////////////////////
     }
 
@@ -112,6 +117,8 @@ public class PanelCentreReg implements ActionListener, MouseListener {
             boutonRetour.addActionListener(listenerBoutonRetour);
             conteneurPanelCentre.add(nouvelleMarche, "nouvelleMarche");
             cl.show(conteneurPanelCentre,"nouvelleMarche");
+//            conteneurPanelCentre.add(graphMarche, "graphMarche");
+//            cl.show(conteneurPanelCentre,"graphMarche");
         }
     };
 

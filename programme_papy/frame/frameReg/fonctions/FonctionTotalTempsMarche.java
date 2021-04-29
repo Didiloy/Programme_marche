@@ -30,10 +30,10 @@ public class FonctionTotalTempsMarche {
     }
 
     public int getHeures() {
-        return (int) (somme/3.6);
+        return (int) (somme/60);
     }
     public int getMinutes(){
-        return (int) (somme%3.6);
+        return (int) (somme%60);
     }
 
 //    ///TEST///////////:

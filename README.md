@@ -24,7 +24,7 @@ DATE DE DEBUT: 08/03/2021
 - Graphique pour les dernières marches, trouver un moyen de mettre la date en x Axis
 
 # A faire
-- Total distance marche, temps marche, moyenne poids, moyenne temps marche, sont développés mais ne sont pas encore utilisés dans l'application.
+- moyenne poids est développée mais ne sont pas encore utilisée dans l'application.
 - Graphique pour les derniers poids  
 - fermer fenetre unreg apres s'etre enregistré.
 - Latex  pour manuel d'utilisation du logiciel.
