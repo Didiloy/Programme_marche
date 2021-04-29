@@ -6,6 +6,7 @@ import java.io.File;
 
 public class Main{
 
+	public Main(){}
 	public static void main (String[] args) {
 		File f = new File("programme_papy/donnee/utilisateur.txt");
 		if(f.isFile()) //Si un fichier utilisateur existe
