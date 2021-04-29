@@ -22,9 +22,10 @@ DATE DE DEBUT: 08/03/2021
 - Total du temps marché
 - Cliqué sur les images font la meme chose que clique sur les boutons dans le panel centre de frame reg
 - Graphique pour les dernières marches, trouver un moyen de mettre la date en x Axis
+- Graphique pour les derniers poids
+- moyenne poids est développée mais n'est pas encore utilisée dans l'application.
+
 
 # A faire
-- moyenne poids est développée mais ne sont pas encore utilisée dans l'application.
-- Graphique pour les derniers poids  
 - fermer fenetre unreg apres s'etre enregistré.
 - Latex  pour manuel d'utilisation du logiciel.

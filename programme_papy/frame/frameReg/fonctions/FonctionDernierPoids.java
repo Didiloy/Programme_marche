@@ -82,12 +82,17 @@ public class FonctionDernierPoids implements ActionListener {
     public JPanel getGraphPoids(){
         JPanel panelAnciensPoids = new JPanel(new BorderLayout());
         JPanel panelGraphAnciensPoids = new JPanel(new GridLayout(1, 1));
-        JPanel panelSudAnciensPoids = new JPanel(new GridLayout(1, 1));
+        JPanel panelSudAnciensPoids = new JPanel(new GridLayout(2, 1));
+            JPanel panelSudMoyennePoids = new JPanel(new FlowLayout());
 
         GraphPoids graphPoids = new GraphPoids();
         panelGraphAnciensPoids.add(graphPoids.getCharPanel());
         panelAnciensPoids.add(panelGraphAnciensPoids, BorderLayout.CENTER); //J'ajoute le panel des graphs au panel
 
+        FonctionMoyennePoids moyennePoids = new FonctionMoyennePoids();
+        JLabel labelMoyennePoids =new JLabel("La moyenne de tout les poids entrés est "+ moyennePoids.getMoyenne() + "kg.");
+        panelSudMoyennePoids.add(labelMoyennePoids);
+        panelSudAnciensPoids.add(panelSudMoyennePoids);
         JButton boutonRetour = new JButton("retour a l'acceuil");//ajout du bouton pour le retour à l'acceuil
         boutonRetour.addActionListener(listenerBoutonRetour);
         panelSudAnciensPoids.add(boutonRetour);
