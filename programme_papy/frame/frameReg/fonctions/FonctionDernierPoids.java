@@ -1,12 +1,19 @@
 package frame.frameReg.fonctions;
 import frame.*;
+import frame.frameReg.FrameReg;
+import graph.GraphDistanceDate;
+import graph.GraphPoids;
+import graph.GraphTempsDate;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import static frame.frameReg.FrameReg.panelReg;
 
 public class FonctionDernierPoids implements ActionListener {
     JPanel ancienPoids = new JPanel();
@@ -68,10 +75,32 @@ public class FonctionDernierPoids implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent actionEvent) {
-
+    public void actionPerformed(ActionEvent e) {
+        FrameReg.setPanel(getGraphPoids());
     }
 
+    public JPanel getGraphPoids(){
+        JPanel panelAnciensPoids = new JPanel(new BorderLayout());
+        JPanel panelGraphAnciensPoids = new JPanel(new GridLayout(1, 1));
+        JPanel panelSudAnciensPoids = new JPanel(new GridLayout(1, 1));
+
+        GraphPoids graphPoids = new GraphPoids();
+        panelGraphAnciensPoids.add(graphPoids.getCharPanel());
+        panelAnciensPoids.add(panelGraphAnciensPoids, BorderLayout.CENTER); //J'ajoute le panel des graphs au panel
+
+        JButton boutonRetour = new JButton("retour a l'acceuil");//ajout du bouton pour le retour à l'acceuil
+        boutonRetour.addActionListener(listenerBoutonRetour);
+        panelSudAnciensPoids.add(boutonRetour);
+        panelAnciensPoids.add(panelSudAnciensPoids, BorderLayout.SOUTH);
+
+        return panelAnciensPoids;
+    }
+    ActionListener listenerBoutonRetour = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            FrameReg.setPanel(panelReg);
+        }
+    };
     public JPanel getAncienPoids() {
         return ancienPoids;
     }

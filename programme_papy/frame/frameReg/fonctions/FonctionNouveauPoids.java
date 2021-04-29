@@ -58,7 +58,7 @@ public class FonctionNouveauPoids implements ActionListener{
 //				System.out.println(data[3]);
             br.close();//Avec le buffered reader j'obtiens l'ancien poids
             BufferedWriter bw = new BufferedWriter(new FileWriter("programme_papy/donnee/ancienPoids.txt", true));//On choisi le fichier dans lequel on écrit
-            bw.write(data[3] + ",");//On écrit
+            bw.write(data[3] + "\n");//On écrit
             bw.close(); //Je met l'ancien poids dans le fichier des anciens poids
             Personne p1 = new Personne(data[0], data[1], Integer.parseInt(data[2]), Integer.parseInt(textNouveauPoids.getText()));
             BufferedWriter bw1 = new BufferedWriter(new FileWriter("programme_papy/donnee/utilisateur.txt"));//On choisi le fichier dans lequel on écrit

@@ -45,5 +45,6 @@ public class FrameReg {
     public static void setPanel(JPanel panel){
         panelRegCard.add(panel, "panel");
         cl.show(panelRegCard, "panel");
+
     }
 }
