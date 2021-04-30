@@ -24,8 +24,8 @@ DATE DE DEBUT: 08/03/2021
 - Graphique pour les dernières marches, trouver un moyen de mettre la date en x Axis
 - Graphique pour les derniers poids
 - moyenne poids est développée mais n'est pas encore utilisée dans l'application.
+- fermer fenetre unreg apres s'etre enregistré.
 
 
 # A faire
-- fermer fenetre unreg apres s'etre enregistré.
 - Latex  pour manuel d'utilisation du logiciel.

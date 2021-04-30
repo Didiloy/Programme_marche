@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FrameUnreg extends JFrame {
-    JFrame frameUnreg = new JFrame();
+    public static JFrame frameUnreg = new JFrame();
     public FrameUnreg(){
         frameUnreg.setTitle("Programme de marche");
         frameUnreg.setSize(1200, 700);

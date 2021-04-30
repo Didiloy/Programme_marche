@@ -10,6 +10,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import static frame.frameUnreg.FrameUnreg.frameUnreg;
+
 public class PanelCentreUnreg implements ActionListener {
     JLabel nom = new JLabel("Entrez votre nom: ");
     JTextField textFieldNom = new JTextField(20);
@@ -80,7 +82,7 @@ public class PanelCentreUnreg implements ActionListener {
         int userPoids = Integer.parseInt(textFieldPoids.getText());
         frame.Personne p1 = new frame.Personne(userNom, userPrenom, userAge, userPoids);
         ecrireFichier(p1);
-        this.frame.dispose();
+        frameUnreg.dispose();
         FrameReg frameReg = new FrameReg();
     }
     public void ecrireFichier(frame.Personne p1) {
