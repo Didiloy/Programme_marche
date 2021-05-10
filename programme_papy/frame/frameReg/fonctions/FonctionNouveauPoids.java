@@ -1,12 +1,16 @@
 package frame.frameReg.fonctions;
 
 import frame.Personne;
+import frame.frameReg.PanelDroiteReg;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+
+import static frame.frameReg.FrameReg.frameReg;
+import static frame.frameReg.FrameReg.panelReg;
 
 public class FonctionNouveauPoids implements ActionListener{
     JPanel nouveauPoids = new JPanel();
@@ -66,6 +70,12 @@ public class FonctionNouveauPoids implements ActionListener{
             bw1.close();
             JOptionPane.showMessageDialog(null, "Nouveau Poids enregistré !",
                     "Programme de Marche", JOptionPane.INFORMATION_MESSAGE);//Je met le popup qui indique que la marche est enregistrée
+
+            BorderLayout layout = (BorderLayout)panelReg.getLayout();
+            panelReg.remove(layout.getLayoutComponent(BorderLayout.EAST));
+            panelReg.add(new PanelDroiteReg(), BorderLayout.EAST);
+            panelReg.updateUI();
+            SwingUtilities.updateComponentTreeUI(frameReg);
 
         }
         catch (IOException e)//Si il y a une erreur on la récupère.

@@ -1,5 +1,7 @@
 package frame.frameReg.fonctions;
 
+import frame.frameReg.PanelDroiteReg;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,6 +9,9 @@ import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import static frame.frameReg.FrameReg.frameReg;
+import static frame.frameReg.FrameReg.panelReg;
 
 public class FonctionNouveauTourTaille implements ActionListener {
     JPanel nouveauTourTaille = new JPanel();
@@ -51,6 +56,12 @@ public class FonctionNouveauTourTaille implements ActionListener {
         ecrireTourTaille(userTourTaille);
         JOptionPane.showMessageDialog(null, "Nouveau tour de taille enregistré !",
                 "Programme de Marche", JOptionPane.INFORMATION_MESSAGE);//Je met le popup qui indique que la marche est enregistrée
+
+        BorderLayout layout = (BorderLayout)panelReg.getLayout();
+        panelReg.remove(layout.getLayoutComponent(BorderLayout.EAST));
+        panelReg.add(new PanelDroiteReg(), BorderLayout.EAST);
+        panelReg.updateUI();
+        SwingUtilities.updateComponentTreeUI(frameReg);
     }
 
     public void ecrireTourTaille(int tourTaille) {//Change le poids dans le fichier utilisateur.txt et met l'ancien dans ancienPoids.txt

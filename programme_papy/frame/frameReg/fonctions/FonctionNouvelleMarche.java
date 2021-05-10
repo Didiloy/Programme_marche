@@ -83,12 +83,12 @@ public class FonctionNouvelleMarche implements ActionListener {
         JOptionPane.showMessageDialog(null, "Nouvelle marche enregistrée !",
                 "Programme de Marche", JOptionPane.INFORMATION_MESSAGE);//Je met le popup qui indique que la marche est enregistrée
 
-        panelReg.remove(panelDroite);
-        JPanel panelDroite2 = new PanelDroiteReg();
-        panelReg.add(panelDroite2, BorderLayout.EAST);
+
+        BorderLayout layout = (BorderLayout)panelReg.getLayout();
+        panelReg.remove(layout.getLayoutComponent(BorderLayout.EAST));
+        panelReg.add(new PanelDroiteReg(), BorderLayout.EAST);
         panelReg.updateUI();
         SwingUtilities.updateComponentTreeUI(frameReg);
-
     }
 
     public JPanel getNouvelleMarche() {
