@@ -26,10 +26,10 @@ DATE DE DEBUT: 08/03/2021
 - moyenne poids est développée mais n'est pas encore utilisée dans l'application.
 - fermer fenetre unreg apres s'etre enregistré.
 - update les marches sans fermer l'app (JFrame.updateUI();)
+- revenir au menu quand on enregistre une marche poids taille
 
 # A faire
 - date pour le poids (localDate)
 - date pour la taille
 - bug supprime les marches sans supprimer le fichier
-- revenir au menu quand on enregistre une marche poids taille
 - Latex  pour manuel d'utilisation du logiciel.

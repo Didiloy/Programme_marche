@@ -18,9 +18,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class PanelCentreReg implements ActionListener, MouseListener {
-    JPanel conteneurPanelCentre = new JPanel();
-    JPanel panelCentre = new JPanel();
-    CardLayout cl = new CardLayout();
+    public static JPanel conteneurPanelCentre = new JPanel();
+    public static JPanel panelCentre = new JPanel();
+    public static CardLayout cl = new CardLayout();
     JButton boutonRetour = new JButton("Retour");
     JPanel nouvelleMarche;
     JPanel nouveauPoids;

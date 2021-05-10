@@ -12,6 +12,8 @@ import java.io.IOException;
 
 import static frame.frameReg.FrameReg.frameReg;
 import static frame.frameReg.FrameReg.panelReg;
+import static frame.frameReg.PanelCentreReg.cl;
+import static frame.frameReg.PanelCentreReg.conteneurPanelCentre;
 
 public class FonctionNouveauTourTaille implements ActionListener {
     JPanel nouveauTourTaille = new JPanel();
@@ -54,6 +56,7 @@ public class FonctionNouveauTourTaille implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         int userTourTaille = Integer.parseInt(textNouveauTourTaille.getText());
         ecrireTourTaille(userTourTaille);
+        cl.show(conteneurPanelCentre, "panelCentre"); //On repasse au panelCentre
         JOptionPane.showMessageDialog(null, "Nouveau tour de taille enregistré !",
                 "Programme de Marche", JOptionPane.INFORMATION_MESSAGE);//Je met le popup qui indique que la marche est enregistrée
 

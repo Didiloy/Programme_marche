@@ -16,6 +16,8 @@ import static frame.frameReg.FrameReg.frameReg;
 import static frame.frameReg.FrameReg.panelReg;
 //import static frame.frameReg.PanelDroiteReg.panelDroiteReg;
 import static frame.frameReg.FrameReg.panelDroite;
+import static frame.frameReg.PanelCentreReg.cl;
+import static frame.frameReg.PanelCentreReg.conteneurPanelCentre;
 
 public class FonctionNouvelleMarche implements ActionListener {
     JPanel nouvelleMarche = new JPanel();
@@ -79,7 +81,7 @@ public class FonctionNouvelleMarche implements ActionListener {
         String userDate = textDate.getText();
         Marche m1 = new Marche(userDistance, userTemps, userDate);
         ecrireMarche(m1);//J'écrit les infos de la marche dans le fichier
-//        cl.show(conteneurPanelCentre, "panelCentre"); //On repasse au panelCentre
+        cl.show(conteneurPanelCentre, "panelCentre"); //On repasse au panelCentre
         JOptionPane.showMessageDialog(null, "Nouvelle marche enregistrée !",
                 "Programme de Marche", JOptionPane.INFORMATION_MESSAGE);//Je met le popup qui indique que la marche est enregistrée
 

@@ -11,6 +11,8 @@ import java.io.*;
 
 import static frame.frameReg.FrameReg.frameReg;
 import static frame.frameReg.FrameReg.panelReg;
+import static frame.frameReg.PanelCentreReg.cl;
+import static frame.frameReg.PanelCentreReg.conteneurPanelCentre;
 
 public class FonctionNouveauPoids implements ActionListener{
     JPanel nouveauPoids = new JPanel();
@@ -68,6 +70,7 @@ public class FonctionNouveauPoids implements ActionListener{
             BufferedWriter bw1 = new BufferedWriter(new FileWriter("programme_papy/donnee/utilisateur.txt"));//On choisi le fichier dans lequel on écrit
             bw1.write(p1.toString());//On écrit
             bw1.close();
+            cl.show(conteneurPanelCentre, "panelCentre"); //On repasse au panelCentre
             JOptionPane.showMessageDialog(null, "Nouveau Poids enregistré !",
                     "Programme de Marche", JOptionPane.INFORMATION_MESSAGE);//Je met le popup qui indique que la marche est enregistrée
 
