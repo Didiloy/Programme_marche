@@ -11,27 +11,26 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
-public class PanelDroiteReg {
-    JPanel panelDroiteReg = new JPanel();
+public class PanelDroiteReg extends JPanel{
     Border borderNoir = BorderFactory.createLineBorder(Color.black);
 
     public PanelDroiteReg() {
-        panelDroiteReg.setPreferredSize(new Dimension(350, 100));
-		panelDroiteReg.setBackground(Color.LIGHT_GRAY);
-        panelDroiteReg.setBorder(borderNoir); //Bordure
-        panelDroiteReg.setLayout(new FlowLayout());
+        this.setPreferredSize(new Dimension(350, 100));
+		this.setBackground(Color.LIGHT_GRAY);
+        this.setBorder(borderNoir); //Bordure
+        this.setLayout(new FlowLayout());
         //Je met les éléments que je veux dans le panel
             FonctionDerniereMarche panelDerniereMarche = new FonctionDerniereMarche();
-            panelDroiteReg.add(panelDerniereMarche.getAncienneMarche());
+            this.add(panelDerniereMarche.getAncienneMarche());
             FonctionDernierPoids panelDernierPoids = new FonctionDernierPoids();
-            panelDroiteReg.add(panelDernierPoids.getAncienPoids());
+            this.add(panelDernierPoids.getAncienPoids());
             FonctionDernierTourTaille panelDernierTourTaille = new FonctionDernierTourTaille();
-            panelDroiteReg.add(panelDernierTourTaille.getAncienTourTaille());
+            this.add(panelDernierTourTaille.getAncienTourTaille());
         ///////////////////////////////////////////////
     }
 
     public JPanel getPanelDroiteReg() {
-        return panelDroiteReg;
+        return new PanelDroiteReg();
     }
 
 

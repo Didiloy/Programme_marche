@@ -10,8 +10,12 @@ import java.io.IOException;
 import java.security.cert.CertificateParsingException;
 
 import frame.Marche;
+import frame.frameReg.PanelDroiteReg;
 
 import static frame.frameReg.FrameReg.frameReg;
+import static frame.frameReg.FrameReg.panelReg;
+//import static frame.frameReg.PanelDroiteReg.panelDroiteReg;
+import static frame.frameReg.FrameReg.panelDroite;
 
 public class FonctionNouvelleMarche implements ActionListener {
     JPanel nouvelleMarche = new JPanel();
@@ -78,7 +82,13 @@ public class FonctionNouvelleMarche implements ActionListener {
 //        cl.show(conteneurPanelCentre, "panelCentre"); //On repasse au panelCentre
         JOptionPane.showMessageDialog(null, "Nouvelle marche enregistrée !",
                 "Programme de Marche", JOptionPane.INFORMATION_MESSAGE);//Je met le popup qui indique que la marche est enregistrée
+
+        panelReg.remove(panelDroite);
+        JPanel panelDroite2 = new PanelDroiteReg();
+        panelReg.add(panelDroite2, BorderLayout.EAST);
+        panelReg.updateUI();
         SwingUtilities.updateComponentTreeUI(frameReg);
+
     }
 
     public JPanel getNouvelleMarche() {
