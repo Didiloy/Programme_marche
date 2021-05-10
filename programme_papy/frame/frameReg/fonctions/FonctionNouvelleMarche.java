@@ -11,6 +11,8 @@ import java.security.cert.CertificateParsingException;
 
 import frame.Marche;
 
+import static frame.frameReg.FrameReg.frameReg;
+
 public class FonctionNouvelleMarche implements ActionListener {
     JPanel nouvelleMarche = new JPanel();
     JTextField textDistance = new JTextField(10);
@@ -76,6 +78,7 @@ public class FonctionNouvelleMarche implements ActionListener {
 //        cl.show(conteneurPanelCentre, "panelCentre"); //On repasse au panelCentre
         JOptionPane.showMessageDialog(null, "Nouvelle marche enregistrée !",
                 "Programme de Marche", JOptionPane.INFORMATION_MESSAGE);//Je met le popup qui indique que la marche est enregistrée
+        SwingUtilities.updateComponentTreeUI(frameReg);
     }
 
     public JPanel getNouvelleMarche() {

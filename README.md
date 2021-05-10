@@ -28,4 +28,7 @@ DATE DE DEBUT: 08/03/2021
 
 
 # A faire
+- date pour le poids (localDate)
+- update les marches sans fermer l'app (JFrame.updateUI();)
+- date pour la taille
 - Latex  pour manuel d'utilisation du logiciel.

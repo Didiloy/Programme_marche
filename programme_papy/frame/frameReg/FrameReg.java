@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FrameReg {
-    JFrame frameReg = new JFrame();
+    public static JFrame frameReg = new JFrame();
     static CardLayout cl = new CardLayout();
     public static JPanel panelReg = new JPanel();
     static JPanel panelRegCard = new JPanel();
