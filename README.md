@@ -31,4 +31,6 @@ DATE DE DEBUT: 08/03/2021
 - date pour le poids (localDate)
 - update les marches sans fermer l'app (JFrame.updateUI();)
 - date pour la taille
+- bug supprime les marches sans supprimer le fichier
+- revenir au menu quand on enregistre une marche poids taille
 - Latex  pour manuel d'utilisation du logiciel.
