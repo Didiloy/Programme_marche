@@ -50,6 +50,7 @@ public class FonctionDernierPoids implements ActionListener {
             ctntAncienPoids.gridx = 0;
             ctntAncienPoids.gridy = 2;
             JButton boutonAfficherAncienPoids = new JButton();
+            boutonAfficherAncienPoids.setBackground(Color.WHITE);
             boutonAfficherAncienPoids.setText("Afficher les anciens poids");
             boutonAfficherAncienPoids.addActionListener(this);
             ancienPoids.add(boutonAfficherAncienPoids, ctntAncienPoids);

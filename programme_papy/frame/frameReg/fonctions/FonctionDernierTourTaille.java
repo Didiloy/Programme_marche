@@ -17,7 +17,6 @@ public class FonctionDernierTourTaille implements ActionListener {
     public FonctionDernierTourTaille() {
         File f = new File("programme_papy/donnee/tourTaille.txt");
         JLabel labelDernierTourTaille = new JLabel();
-        JLabel labelTitreDernierTourTaille = new JLabel("Dernier tour de taille:");
         if (f.isFile()) {
             DerniereLigneFichier tmp = new DerniereLigneFichier();
             String dernierTourTaille = tmp.derniereLigne("programme_papy/donnee/tourTaille.txt");//aller chercher le dernier poids
@@ -30,13 +29,13 @@ public class FonctionDernierTourTaille implements ActionListener {
             ctntAncienTourTaille.gridx = 0;
             ctntAncienTourTaille.gridwidth = 2;
             ctntAncienTourTaille.gridy = 0;
-            ancienTourTaille.add(labelTitreDernierTourTaille, ctntAncienTourTaille);
             ctntAncienTourTaille.gridx = 0;
             ctntAncienTourTaille.gridy = 1;
             ancienTourTaille.add(labelDernierTourTaille, ctntAncienTourTaille);
             ctntAncienTourTaille.gridx = 0;
             ctntAncienTourTaille.gridy = 2;
             JButton boutonAfficherAncienTourTaille = new JButton();
+            boutonAfficherAncienTourTaille.setBackground(Color.WHITE);
             boutonAfficherAncienTourTaille.setText("Afficher les anciens tour de taille");
             boutonAfficherAncienTourTaille.addActionListener(this);
             ancienTourTaille.add(boutonAfficherAncienTourTaille, ctntAncienTourTaille);
@@ -49,7 +48,6 @@ public class FonctionDernierTourTaille implements ActionListener {
             ctntAncienTourTaille.gridx = 0;
             ctntAncienTourTaille.gridwidth = 2;
             ctntAncienTourTaille.gridy = 0;
-            ancienTourTaille.add(labelTitreDernierTourTaille, ctntAncienTourTaille);
             ctntAncienTourTaille.gridx = 0;
             ctntAncienTourTaille.gridy = 1;
             ancienTourTaille.add(labelDernierTourTaille, ctntAncienTourTaille);

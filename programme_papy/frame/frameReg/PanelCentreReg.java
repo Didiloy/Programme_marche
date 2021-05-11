@@ -38,25 +38,27 @@ public class PanelCentreReg implements ActionListener, MouseListener {
             //Gauche
                 JPanel panelCentreCentreGauche = new JPanel(new BorderLayout(1, 1));
                 Image imageEnregistrerPoids = new ImageIcon("programme_papy/image/enregistrerPoids.jpg").getImage();
-                ImageIcon img = new ImageIcon(new ImageIcon(imageEnregistrerPoids).getImage().getScaledInstance(425, 340, Image.SCALE_DEFAULT));
+                ImageIcon img = new ImageIcon(new ImageIcon(imageEnregistrerPoids).getImage().getScaledInstance(425, 340, Image.SCALE_SMOOTH));
                 JLabel labelImageEnregistrerPoids = new JLabel();
                 labelImageEnregistrerPoids.setIcon(img);;//Mettre l'image dans un label pour l'afficher
                 panelCentreCentreGauche.add(labelImageEnregistrerPoids, BorderLayout.NORTH);
                 labelImageEnregistrerPoids.addMouseListener(listenerImagePoids);
                 JButton boutonPoidsVisible = new JButton("Enregistrer un nouveau poids");
+                boutonPoidsVisible.setBackground(Color.WHITE);
                 panelCentreCentreGauche.add(boutonPoidsVisible, BorderLayout.SOUTH);
                 boutonPoidsVisible.addActionListener(listenerBoutonPoidsVisible);
                 panelCentreCentre.add(panelCentreCentreGauche);
 
-            //Droite
+            //Droite  labelImageEnregistrerTaille.getVerticalAlignment();
                 JPanel panelCentreCentreDroite = new JPanel(new BorderLayout(1, 1));
-                Image imageEnregistrerTaille = new ImageIcon("programme_papy/image/enregistrerTourTaille.jpg").getImage();
-                ImageIcon img2 = new ImageIcon(new ImageIcon(imageEnregistrerTaille).getImage().getScaledInstance(425, 340, Image.SCALE_DEFAULT));
                 JLabel labelImageEnregistrerTaille = new JLabel();
+                Image imageEnregistrerTaille = new ImageIcon("programme_papy/image/enregistrerTourTaille.jpg").getImage();
+                ImageIcon img2 = new ImageIcon(new ImageIcon(imageEnregistrerTaille).getImage().getScaledInstance(425, 340, Image.SCALE_SMOOTH));
                 labelImageEnregistrerTaille.setIcon(img2);//Mettre l'image dans un label pour l'afficher
                 panelCentreCentreDroite.add(labelImageEnregistrerTaille, BorderLayout.NORTH);
                 labelImageEnregistrerTaille.addMouseListener(listenerImageTourTaille);
                 JButton boutonTourTailleVisible = new JButton("Enregistrer un nouveau tour de taille");
+                boutonTourTailleVisible.setBackground(Color.WHITE);
                 panelCentreCentreDroite.add(boutonTourTailleVisible, BorderLayout.SOUTH);
                 boutonTourTailleVisible.addActionListener(listenerBoutonTourTailleVisible);
                 panelCentreCentre.add(panelCentreCentreDroite);
@@ -67,6 +69,7 @@ public class PanelCentreReg implements ActionListener, MouseListener {
         JPanel panelSud = new JPanel(new BorderLayout());
         panelSud.setPreferredSize(new Dimension(200, 200));
         JButton boutonMarcheVisible = new JButton("Enregistrer une marche");
+        boutonMarcheVisible.setBackground(Color.WHITE);
         panelSud.add(boutonMarcheVisible, BorderLayout.SOUTH);
         boutonMarcheVisible.addActionListener(listenerBoutonMarcheVisible);
         ImageIcon enregistrerMarche = new ImageIcon("programme_papy/image/enregistrerMarche.jpg");

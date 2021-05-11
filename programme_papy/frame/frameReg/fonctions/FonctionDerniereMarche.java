@@ -70,6 +70,7 @@ public class FonctionDerniereMarche implements ActionListener {
             ctntAncienneMarche.gridx = 0;
             ctntAncienneMarche.gridy = 2;
             JButton boutonAfficherAncienneMarche = new JButton();
+            boutonAfficherAncienneMarche.setBackground(Color.WHITE);
             boutonAfficherAncienneMarche.setText("Afficher les anciennes marches");
             boutonAfficherAncienneMarche.addActionListener(this);
             ancienneMarche.add(boutonAfficherAncienneMarche, ctntAncienneMarche);

@@ -5,8 +5,9 @@ import java.awt.*;
 
 public class PanelHautReg {
     JPanel panelHautReg = new JPanel();
-    JLabel titre = new JLabel("Je sais pas encore");
+    JLabel titre = new JLabel("Programme de Marche");
     public PanelHautReg(){
+        titre.setFont(new Font("Arial",Font.BOLD,24));
         panelHautReg.setPreferredSize(new Dimension(100, 100));
         panelHautReg.setBackground(Color.LIGHT_GRAY);
         panelHautReg.setLayout(new GridBagLayout());

@@ -8,7 +8,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.time.LocalDate;
 
 import static frame.frameReg.FrameReg.frameReg;
 import static frame.frameReg.FrameReg.panelReg;
@@ -18,7 +17,6 @@ import static frame.frameReg.PanelCentreReg.conteneurPanelCentre;
 public class FonctionNouveauPoids implements ActionListener{
     JPanel nouveauPoids = new JPanel();
     JTextField textNouveauPoids = new JTextField(10);
-    LocalDate today = LocalDate.now();
     public FonctionNouveauPoids(){
         nouveauPoids.setBackground(Color.LIGHT_GRAY);
         nouveauPoids.setLayout(new GridBagLayout());
@@ -61,7 +59,9 @@ public class FonctionNouveauPoids implements ActionListener{
             String data[] = new String[4];
             while((s=br.readLine())!=null) {
                 data = s.split(",");
+//					System.out.println(data[3]);
             }
+//				System.out.println(data[3]);
             br.close();//Avec le buffered reader j'obtiens l'ancien poids
             BufferedWriter bw = new BufferedWriter(new FileWriter("programme_papy/donnee/ancienPoids.txt", true));//On choisi le fichier dans lequel on écrit
             bw.write(textNouveauPoids.getText() + "\n");//On écrit

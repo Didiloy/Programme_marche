@@ -18,7 +18,7 @@ public class PanelDroiteReg extends JPanel{
         this.setPreferredSize(new Dimension(350, 100));
 		this.setBackground(Color.LIGHT_GRAY);
         this.setBorder(borderNoir); //Bordure
-        this.setLayout(new FlowLayout());
+        this.setLayout(new GridLayout(3,1));
         //Je met les éléments que je veux dans le panel
             FonctionDerniereMarche panelDerniereMarche = new FonctionDerniereMarche();
             this.add(panelDerniereMarche.getAncienneMarche());
