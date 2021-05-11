@@ -90,6 +90,9 @@ public class PanelCentreUnreg implements ActionListener {
             BufferedWriter bw = new BufferedWriter(new FileWriter("programme_papy/donnee/utilisateur.txt"));//On choisi le fichier dans lequel on écrit
             bw.write(p1.toString());//On écrit
             bw.close();
+            BufferedWriter bw2 = new BufferedWriter(new FileWriter("programme_papy/donnee/ancienPoids.txt"));//On choisi le fichier dans lequel on écrit
+            bw2.write(p1.getPoids() +"\n");//On écrit
+            bw2.close();
         }
         catch (IOException e)//Si il y a une erreur on la récupère.
         {

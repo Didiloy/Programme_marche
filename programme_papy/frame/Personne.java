@@ -43,8 +43,9 @@ public class Personne{
     }
 
     public String toString(){
-        return (this.nom + "," + this.prenom + "," + this.age + "," + this.poids);
-    }
+        return (this.nom + "," + this.prenom + "," + this.age + "," + this.poids); } //toString avec le poids
+
+    public String toString(boolean t){return (this.nom + "," + this.prenom + "," + this.age);} //toString sans le poids
 
     public String toString(int etendu){
         return ("Nom: " + this.nom + "\n" + "Prénom: " + this.prenom + "\n" + "age: " + this.age + "\n" + "Tour de taille " + this.tourTaille + "\nPoids: " + this.poids);
