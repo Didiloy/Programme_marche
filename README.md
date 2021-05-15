@@ -1,6 +1,6 @@
 DATE DE DEBUT: 08/03/2021
 
-#Important
+# Important
 Pendant les test n'enregistrez pas plusieurs poids, marches ou tour de taille le meme jour. C'est un bug déjà connu. 
 Si vous le faite la courbe ne s'affichera pas et pour la faire s'afficher il faut modifier les fichier `.txt` 
 `donnee/tourTaille.txt`, `donnee/marche.txt` et `donnee/ancienPoids.txt` de façon a ce qu'il n'y ai pas 2 fois la meme date.
