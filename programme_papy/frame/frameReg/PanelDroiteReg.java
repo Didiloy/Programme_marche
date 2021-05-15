@@ -1,8 +1,6 @@
 package frame.frameReg;
 import frame.*;
-import frame.frameReg.fonctions.FonctionDernierPoids;
-import frame.frameReg.fonctions.FonctionDernierTourTaille;
-import frame.frameReg.fonctions.FonctionDerniereMarche;
+import frame.frameReg.fonctions.*;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -31,13 +29,12 @@ public class PanelDroiteReg extends JPanel{
         //Je crée le panel du centre
         JPanel panelCentre = new JPanel(new GridLayout(3,1));
         //Je met les éléments que je veux dans le panel du centre
-            FonctionDerniereMarche panelDerniereMarche = new FonctionDerniereMarche();
-            panelCentre.add(panelDerniereMarche.getAncienneMarche());
-            FonctionDernierPoids panelDernierPoids = new FonctionDernierPoids();
-            panelCentre.add(panelDernierPoids.getAncienPoids());
-            FonctionDernierTourTaille panelDernierTourTaille = new FonctionDernierTourTaille();
-            panelCentre.add(panelDernierTourTaille.getAncienTourTaille());
-
+            panelDroiteEnregistrerNouvelleMarche panelEnregistrerMarche = new panelDroiteEnregistrerNouvelleMarche();
+            panelCentre.add(panelEnregistrerMarche.getEnregistrerMarche());
+            panelDroiteEnregistrerNouveauPoids panelEnregistrerPoids = new panelDroiteEnregistrerNouveauPoids();
+            panelCentre.add(panelEnregistrerPoids.getEnregistrerPoids());
+            panelDroiteEnregistrerNouveauTourTaille panelEnregistrerTourTaille = new panelDroiteEnregistrerNouveauTourTaille();
+            panelCentre.add(panelEnregistrerTourTaille.getEnregistrerTourTaille());
         //J'ajoute le panel du centre au panel de droite
         this.add(panelCentre, BorderLayout.CENTER);
         panelCentre.setBackground(CouleurBleu);
