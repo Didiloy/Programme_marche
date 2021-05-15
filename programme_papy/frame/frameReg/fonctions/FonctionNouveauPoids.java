@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.time.LocalDate;
 
 import static frame.frameReg.FrameReg.frameReg;
 import static frame.frameReg.FrameReg.panelReg;
@@ -64,7 +65,8 @@ public class FonctionNouveauPoids implements ActionListener{
 //				System.out.println(data[3]);
             br.close();//Avec le buffered reader j'obtiens l'ancien poids
             BufferedWriter bw = new BufferedWriter(new FileWriter("programme_papy/donnee/ancienPoids.txt", true));//On choisi le fichier dans lequel on écrit
-            bw.write(textNouveauPoids.getText() + "\n");//On écrit
+            LocalDate date = null;
+            bw.write(textNouveauPoids.getText() + "," + date.now() + "\n");//On écrit
             bw.close(); //Je met l'ancien poids dans le fichier des anciens poids
             Personne p1 = new Personne(data[0], data[1], Integer.parseInt(data[2]), Integer.parseInt(textNouveauPoids.getText()));
             BufferedWriter bw1 = new BufferedWriter(new FileWriter("programme_papy/donnee/utilisateur.txt"));//On choisi le fichier dans lequel on écrit

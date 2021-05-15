@@ -19,8 +19,8 @@ public class FonctionDernierTourTaille implements ActionListener {
         JLabel labelDernierTourTaille = new JLabel();
         if (f.isFile()) {
             DerniereLigneFichier tmp = new DerniereLigneFichier();
-            String dernierTourTaille = tmp.derniereLigne("programme_papy/donnee/tourTaille.txt");//aller chercher le dernier poids
-            int dernierTourTailleInt = Integer.parseInt(dernierTourTaille);//Convertir le poids en int
+            String[] dernierTourTaille = tmp.derniereLigne("programme_papy/donnee/tourTaille.txt").split(",");//aller chercher le dernier poids
+            int dernierTourTailleInt = Integer.parseInt(dernierTourTaille[0]);//Convertir le poids en int
 
             labelDernierTourTaille.setText("Votre tour de taille actuel est " + dernierTourTailleInt + "cm.");
             ancienTourTaille.setLayout(new GridBagLayout());

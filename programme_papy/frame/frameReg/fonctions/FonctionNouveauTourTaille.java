@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 
 import static frame.frameReg.FrameReg.frameReg;
 import static frame.frameReg.FrameReg.panelReg;
@@ -70,7 +71,8 @@ public class FonctionNouveauTourTaille implements ActionListener {
     public void ecrireTourTaille(int tourTaille) {//Change le poids dans le fichier utilisateur.txt et met l'ancien dans ancienPoids.txt
         try {//Le true du filewriter c'est pour ouvrir le fichier en mode append
             BufferedWriter bw = new BufferedWriter(new FileWriter("programme_papy/donnee/tourTaille.txt", true));//On choisi le fichier dans lequel on écrit
-            bw.write(tourTaille + "\n");//On écrit
+            LocalDate date = null;
+            bw.write(tourTaille +","+ date.now()+ "\n");//On écrit
             bw.close();
         }
         catch (IOException e)//Si il y a une erreur on la récupère.

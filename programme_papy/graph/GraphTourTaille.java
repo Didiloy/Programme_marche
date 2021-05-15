@@ -35,18 +35,15 @@ public class GraphTourTaille {
                 int i = 0;
                 while (br.ready()) {
                     line = br.readLine();
-                    tmp = line.split("\n");
+                    tmp = line.split(",");
                     tourTaille[i] = Integer.parseInt(tmp[0]);
+                    ds.addValue(tourTaille[i], "Distance marché", ""+tmp[1]); //J'ajoute les valeurs à utilisé dans la courbe
                     i += 1;
                 }
                 br.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-
-        for (int i = 0; i< GetLigneTourTaille(); i++){
-            ds.addValue(tourTaille[i], "Distance marché", ""+i); //J'ajoute les valeurs à utilisé dans la courbe
         }
         return ds;
     }

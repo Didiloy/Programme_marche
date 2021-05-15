@@ -7,7 +7,13 @@
 ```
 DATE DE DEBUT: 08/03/2021
 
-# Fait
+#Important
+Pendant les test n'enregistrez pas deux dates ou deux tour de taille le meme jour. C'est un bug déjà connu. 
+Si vous le faite la courbe ne s'affichera pas et pour la faire s'afficher il faut modifier les fichier `.txt` 
+`donnee/tourTaille.txt` et `donnee/ancienPoids.txt` de façon a ce qu'il n'y ai pas 2 fois la meme date.
+___
+
+### Fait
 - Premiere page change en fonction de si il y a déjà un utilisateur enregistré ou pas.
 - Enregistrer une nouvelle marche
 - enregistrer poid
@@ -27,9 +33,12 @@ DATE DE DEBUT: 08/03/2021
 - fermer fenetre unreg apres s'etre enregistré.
 - update les marches sans fermer l'app (JFrame.updateUI();)
 - revenir au menu quand on enregistre une marche poids taille
-
-# A faire
 - date pour le poids (localDate)
 - date pour la taille
+
+### A faire
 - bug supprime les marches sans supprimer le fichier
+- essayer de faire les 2 courbes de marche en une seule
+- bug si deux dates sont les meme dans la courbe pour le poids elle n'est ajouté qu'une seule fois et donc la courbe n'est pas bonne
+- meme bug que pour la courbe du poids avec la courbe du tour de taille  
 - Latex  pour manuel d'utilisation du logiciel.

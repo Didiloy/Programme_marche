@@ -7,6 +7,8 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GraphPoids {
     ChartPanel cp;
@@ -21,11 +23,11 @@ public class GraphPoids {
         cp = new ChartPanel(chart);
     }
 
-    public DefaultCategoryDataset createDataset() {
+    public DefaultCategoryDataset createDataset() { //créer le dataset
         DefaultCategoryDataset ds = new DefaultCategoryDataset();
         File f = new File("programme_papy/donnee/ancienPoids.txt");
         int[] poids = new int[GetLignePoids()];
-        String [] tmp;
+        String [] ligne;
         if (f.isFile()) {
             InputStreamReader streamReader = null;
             try {
@@ -35,18 +37,16 @@ public class GraphPoids {
                 int i = 0;
                 while (br.ready()) {
                     line = br.readLine();
-                    tmp = line.split("\n");
-                    poids[i] = Integer.parseInt(tmp[0]);
+                    ligne = line.split(",");
+                    poids[i] = Integer.parseInt(ligne[0]);
+                    System.out.println(ligne[1]);
+                    ds.addValue(poids[i], "Distance marché", ""+ligne[1]); //J'ajoute les valeurs au dataset
                     i += 1;
                 }
                 br.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-
-        for (int i = 0; i< GetLignePoids(); i++){
-            ds.addValue(poids[i], "Distance marché", ""+i); //J'ajoute les valeurs à utilisé dans la courbe
         }
         return ds;
     }
