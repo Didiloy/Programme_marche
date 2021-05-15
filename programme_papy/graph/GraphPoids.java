@@ -31,6 +31,7 @@ public class GraphPoids {
         if (f.isFile()) {
             InputStreamReader streamReader = null;
             try {
+                ArrayList<String> no_repeat = new ArrayList<>();
                 streamReader = new InputStreamReader(new FileInputStream(f));
                 BufferedReader br = new BufferedReader(streamReader);
                 String line;
@@ -38,9 +39,17 @@ public class GraphPoids {
                 while (br.ready()) {
                     line = br.readLine();
                     ligne = line.split(",");
+                    int j=1;
+                    for(String nr : no_repeat){
+                        if(nr.equals(ligne[1])){
+                            j++;
+                        }
+                    }
+                    no_repeat.add(ligne[1]);
+                    if(j!=1)ligne[1]=ligne[1]+" - "+j;
                     poids[i] = Integer.parseInt(ligne[0]);
                     System.out.println(ligne[1]);
-                    ds.addValue(poids[i], "Distance marché", ""+ligne[1]); //J'ajoute les valeurs au dataset
+                    ds.addValue(poids[i], "Poids", ""+ligne[1]); //J'ajoute les valeurs au dataset
                     i += 1;
                 }
                 br.close();

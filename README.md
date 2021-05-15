@@ -30,6 +30,7 @@ ___
 - date pour la taille
 
 ### A faire
+- bug lors de l'enregistrement la date ne se met pas dans ancienPoids.txt 
 - bug supprime les marches sans supprimer le fichier
 - essayer de faire les 2 courbes de marche en une seule
 - bug si deux dates sont les meme dans la courbe pour le poids elle n'est ajouté qu'une seule fois et donc la courbe n'est pas bonne

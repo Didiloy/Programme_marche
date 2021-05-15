@@ -7,6 +7,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class GraphTourTaille {
     ChartPanel cp;
@@ -29,6 +30,7 @@ public class GraphTourTaille {
         if (f.isFile()) {
             InputStreamReader streamReader = null;
             try {
+                ArrayList<String> no_repeat = new ArrayList<>();
                 streamReader = new InputStreamReader(new FileInputStream(f));
                 BufferedReader br = new BufferedReader(streamReader);
                 String line;
@@ -36,8 +38,16 @@ public class GraphTourTaille {
                 while (br.ready()) {
                     line = br.readLine();
                     tmp = line.split(",");
+                    int j=1;
+                    for(String nr : no_repeat){
+                        if(nr.equals(tmp[1])){
+                            j++;
+                        }
+                    }
+                    no_repeat.add(tmp[1]);
+                    if(j!=1)tmp[1]=tmp[1]+" - "+j;
                     tourTaille[i] = Integer.parseInt(tmp[0]);
-                    ds.addValue(tourTaille[i], "Distance marché", ""+tmp[1]); //J'ajoute les valeurs à utilisé dans la courbe
+                    ds.addValue(tourTaille[i], "Tour de taille", ""+tmp[1]); //J'ajoute les valeurs à utilisé dans la courbe
                     i += 1;
                 }
                 br.close();

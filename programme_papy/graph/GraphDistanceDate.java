@@ -7,6 +7,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class GraphDistanceDate {
     ChartPanel cp;
@@ -29,6 +30,7 @@ public class GraphDistanceDate {
         if (f.isFile()) {
             InputStreamReader streamReader = null;
             try {
+                ArrayList<String> no_repeat = new ArrayList<>();
                 streamReader = new InputStreamReader(new FileInputStream(f));
                 BufferedReader br = new BufferedReader(streamReader);
                 String line;
@@ -36,6 +38,14 @@ public class GraphDistanceDate {
                 while (br.ready()) {
                     line = br.readLine();
                     tmp = line.split(",");
+                    int j=1;
+                    for(String nr : no_repeat){
+                        if(nr.equals(tmp[2])){
+                            j++;
+                        }
+                    }
+                    no_repeat.add(tmp[2]);
+                    if(j!=1)tmp[2]=tmp[2]+" - "+j;
                     tempsMarche[i] = Double.parseDouble(tmp[0]);
                     ds.addValue(tempsMarche[i], "Distance marché", tmp[2]); //J'ajoute les valeurs à utilisé dans la courbe
                     i += 1;

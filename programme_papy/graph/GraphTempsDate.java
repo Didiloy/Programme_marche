@@ -36,6 +36,7 @@ public class GraphTempsDate {
         if (f.isFile()) {
             InputStreamReader streamReader = null;
             try {
+                ArrayList<String> no_repeat = new ArrayList<>();
                 streamReader = new InputStreamReader(new FileInputStream(f));
                 BufferedReader br = new BufferedReader(streamReader);
                 String line;
@@ -43,6 +44,14 @@ public class GraphTempsDate {
                 while (br.ready()) {
                     line = br.readLine();
                     tmp = line.split(",");
+                    int j=1;
+                    for(String nr : no_repeat){
+                        if(nr.equals(tmp[2])){
+                            j++;
+                        }
+                    }
+                    no_repeat.add(tmp[2]);
+                    if(j!=1)tmp[2]=tmp[2]+" - "+j;
                     tempsMarche[i] = Double.parseDouble(tmp[1]);
                     date[i] = tmp[2];
                     i += 1;
