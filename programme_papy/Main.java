@@ -9,6 +9,10 @@ public class Main{
 
 	public Main(){}
 	public static void main (String[] args) {
+
+		File donnee = new File("programme_papy/donnee");
+		if(!donnee.exists())donnee.mkdir();
+
 		File f = new File("programme_papy/donnee/utilisateur.txt");
 		if(f.isFile()) //Si un fichier utilisateur existe
 		{
