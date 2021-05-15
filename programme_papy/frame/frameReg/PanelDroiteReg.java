@@ -31,8 +31,10 @@ public class PanelDroiteReg extends JPanel{
         //Je met les éléments que je veux dans le panel du centre
             panelDroiteEnregistrerNouvelleMarche panelEnregistrerMarche = new panelDroiteEnregistrerNouvelleMarche();
             panelCentre.add(panelEnregistrerMarche.getEnregistrerMarche());
+
             panelDroiteEnregistrerNouveauPoids panelEnregistrerPoids = new panelDroiteEnregistrerNouveauPoids();
             panelCentre.add(panelEnregistrerPoids.getEnregistrerPoids());
+
             panelDroiteEnregistrerNouveauTourTaille panelEnregistrerTourTaille = new panelDroiteEnregistrerNouveauTourTaille();
             panelCentre.add(panelEnregistrerTourTaille.getEnregistrerTourTaille());
         //J'ajoute le panel du centre au panel de droite

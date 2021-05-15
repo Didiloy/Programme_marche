@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 
 import static frame.frameUnreg.FrameUnreg.frameUnreg;
 
@@ -90,8 +91,9 @@ public class PanelCentreUnreg implements ActionListener {
             BufferedWriter bw = new BufferedWriter(new FileWriter("programme_papy/donnee/utilisateur.txt"));//On choisi le fichier dans lequel on écrit
             bw.write(p1.toString());//On écrit
             bw.close();
+            LocalDate date = null;
             BufferedWriter bw2 = new BufferedWriter(new FileWriter("programme_papy/donnee/ancienPoids.txt"));//On choisi le fichier dans lequel on écrit
-            bw2.write(p1.getPoids() +"\n");//On écrit
+            bw2.write(p1.getPoids() +"," + date.now() + "\n");//On écrit
             bw2.close();
         }
         catch (IOException e)//Si il y a une erreur on la récupère.

@@ -28,12 +28,14 @@ ___
 - revenir au menu quand on enregistre une marche poids taille
 - date pour le poids (localDate)
 - date pour la taille
+- bug lors de l'enregistrement la date ne se met pas dans ancienPoids.txt
 
 ### A faire
-- bug lors de l'enregistrement la date ne se met pas dans ancienPoids.txt 
+
 - bug supprime les marches sans supprimer le fichier
 - essayer de faire les 2 courbes de marche en une seule
 - bug si deux dates sont les meme dans la courbe pour le poids elle n'est ajouté qu'une seule fois et donc la courbe n'est pas bonne
 - meme bug que pour la courbe du poids avec la courbe du tour de taille  
 - Meme bug si deux marches sont a la meme date.
+- Changer le panel du centre  
 - Latex  pour manuel d'utilisation du logiciel.
