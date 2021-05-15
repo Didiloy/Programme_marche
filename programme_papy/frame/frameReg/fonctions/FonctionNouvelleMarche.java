@@ -15,7 +15,7 @@ import frame.frameReg.PanelDroiteReg;
 import static frame.frameReg.FrameReg.frameReg;
 import static frame.frameReg.FrameReg.panelReg;
 //import static frame.frameReg.PanelDroiteReg.panelDroiteReg;
-import static frame.frameReg.FrameReg.panelDroite;
+import static frame.frameReg.FrameReg.panelGauche;
 import static frame.frameReg.PanelCentreReg.cl;
 import static frame.frameReg.PanelCentreReg.conteneurPanelCentre;
 

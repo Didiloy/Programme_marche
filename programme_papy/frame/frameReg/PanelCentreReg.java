@@ -33,6 +33,11 @@ public class PanelCentreReg implements ActionListener, MouseListener {
         panelCentre.setLayout(new BorderLayout());
 //        panelCentre.setLayout(new GridLayout(10, 1, 5, 5));
 
+       //Panel du haut
+        PanelHautReg panelHaut = new PanelHautReg();
+        panelCentre.add(panelHaut.getPanelHautReg(), BorderLayout.NORTH);
+        /////////////
+
         JPanel panelCentreCentre = new JPanel(new GridLayout(1, 2, 1, 1));
         ///Panel au centre du panel du centre
             //Gauche

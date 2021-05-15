@@ -1,16 +1,9 @@
-```
-  __                  _   _                 
- / _| ___  _ __   ___| |_(_) ___  _ __  ___ 
-| |_ / _ \| '_ \ / __| __| |/ _ \| '_ \/ __|
-|  _| (_) | | | | (__| |_| | (_) | | | \__ \
-|_|  \___/|_| |_|\___|\__|_|\___/|_| |_|___/
-```
 DATE DE DEBUT: 08/03/2021
 
 #Important
-Pendant les test n'enregistrez pas deux dates ou deux tour de taille le meme jour. C'est un bug déjà connu. 
+Pendant les test n'enregistrez pas plusieurs poids, marches ou tour de taille le meme jour. C'est un bug déjà connu. 
 Si vous le faite la courbe ne s'affichera pas et pour la faire s'afficher il faut modifier les fichier `.txt` 
-`donnee/tourTaille.txt` et `donnee/ancienPoids.txt` de façon a ce qu'il n'y ai pas 2 fois la meme date.
+`donnee/tourTaille.txt`, `donnee/marche.txt` et `donnee/ancienPoids.txt` de façon a ce qu'il n'y ai pas 2 fois la meme date.
 ___
 
 ### Fait
@@ -41,4 +34,5 @@ ___
 - essayer de faire les 2 courbes de marche en une seule
 - bug si deux dates sont les meme dans la courbe pour le poids elle n'est ajouté qu'une seule fois et donc la courbe n'est pas bonne
 - meme bug que pour la courbe du poids avec la courbe du tour de taille  
+- Meme bug si deux marches sont a la meme date.
 - Latex  pour manuel d'utilisation du logiciel.

@@ -9,16 +9,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.*;
 
 import static frame.frameReg.FrameReg.panelReg;
 
-public class FonctionDerniereMarche implements ActionListener {
+public class FonctionDerniereMarche implements ActionListener, MouseListener {
     JPanel ancienneMarche = new JPanel();
+    Color CouleurBleu = new Color(83, 122, 204);
+    Color CouleurBleuClair = new Color(133, 156, 227);
+    Color CouleurForegroundLabel = new Color(207, 211, 214);
     public FonctionDerniereMarche() {
         File f = new File("programme_papy/donnee/marche.txt");
         JLabel labelDerniereMarche = new JLabel();
-        JLabel labelTitreDerniereMarche = new JLabel();
         if (f.isFile()) {
             DerniereLigneFichier tmp = new DerniereLigneFichier();
             String derniereMarche = tmp.derniereLigne("programme_papy/donnee/marche.txt");//aller chercher la derniere marche
@@ -57,35 +61,26 @@ public class FonctionDerniereMarche implements ActionListener {
                 }
 
             }
-            ancienneMarche.setLayout(new GridBagLayout());
-            GridBagConstraints ctntAncienneMarche = new GridBagConstraints();
-            ctntAncienneMarche.insets = new Insets(10, 10, 10, 10);//padding des éléments du panel
-            ctntAncienneMarche.gridx = 0;
-            ctntAncienneMarche.gridwidth = 2;
-            ctntAncienneMarche.gridy = 0;
-            ancienneMarche.add(labelTitreDerniereMarche, ctntAncienneMarche);
-            ctntAncienneMarche.gridx = 0;
-            ctntAncienneMarche.gridy = 1;
-            ancienneMarche.add(labelDerniereMarche, ctntAncienneMarche);
-            ctntAncienneMarche.gridx = 0;
-            ctntAncienneMarche.gridy = 2;
-            JButton boutonAfficherAncienneMarche = new JButton();
-            boutonAfficherAncienneMarche.setBackground(Color.WHITE);
-            boutonAfficherAncienneMarche.setText("Afficher les anciennes marches");
-            boutonAfficherAncienneMarche.addActionListener(this);
-            ancienneMarche.add(boutonAfficherAncienneMarche, ctntAncienneMarche);
+            labelDerniereMarche.setFont(new Font("Arial", Font.BOLD, 14));
+            labelDerniereMarche.setForeground(CouleurForegroundLabel);
+            ancienneMarche.setLayout(new GridLayout(1, 1));
+            ancienneMarche.setBackground(CouleurBleu);
+            ancienneMarche.addMouseListener(this);
+            ancienneMarche.add(labelDerniereMarche);
+            //Bouton pour afficher les anciennes marches
+//            JButton boutonAfficherAncienneMarche = new JButton();
+//            boutonAfficherAncienneMarche.setBackground(Color.WHITE);
+//            boutonAfficherAncienneMarche.setText("Afficher les anciennes marches");
+//            boutonAfficherAncienneMarche.addActionListener(this);
+//            ancienneMarche.add(boutonAfficherAncienneMarche, ctntAncienneMarche);
         } else {//Si il n'y a pas d'ancienne marche
-            ancienneMarche.setLayout(new GridBagLayout());
-            GridBagConstraints ctntAncienneMarche = new GridBagConstraints();
-            ctntAncienneMarche.insets = new Insets(10, 10, 10, 10);//padding des éléments du panel
-            ctntAncienneMarche.gridx = 0;
-            ctntAncienneMarche.gridwidth = 2;
-            ctntAncienneMarche.gridy = 0;
-            ancienneMarche.add(labelTitreDerniereMarche, ctntAncienneMarche);
-            ctntAncienneMarche.gridx = 0;
-            ctntAncienneMarche.gridy = 1;
+            labelDerniereMarche.setFont(new Font("Arial", Font.BOLD, 14));
+            labelDerniereMarche.setForeground(CouleurForegroundLabel);
+            ancienneMarche.setLayout(new GridLayout(1, 1));
+            ancienneMarche.setBackground(CouleurBleu);
+            ancienneMarche.addMouseListener(this);
             labelDerniereMarche.setText("Il n'y a pas encore de marche enregistrée");
-            ancienneMarche.add(labelDerniereMarche, ctntAncienneMarche);
+            ancienneMarche.add(labelDerniereMarche);
         }
 
     }
@@ -143,4 +138,29 @@ public class FonctionDerniereMarche implements ActionListener {
             FrameReg.setPanel(panelReg);
         }
     };
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        FrameReg.setPanel(getGraphMarche());
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        ancienneMarche.setBackground(CouleurBleuClair);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        ancienneMarche.setBackground(CouleurBleu);
+    }
 }

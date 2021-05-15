@@ -8,12 +8,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 
 import static frame.frameReg.FrameReg.panelReg;
 
-public class FonctionDernierTourTaille implements ActionListener {
+public class FonctionDernierTourTaille implements ActionListener, MouseListener {
     JPanel ancienTourTaille = new JPanel();
+    Color CouleurBleu = new Color(83, 122, 204);
+    Color CouleurBleuClair = new Color(133, 156, 227);
+    Color CouleurForegroundLabel = new Color(207, 211, 214);
     public FonctionDernierTourTaille() {
         File f = new File("programme_papy/donnee/tourTaille.txt");
         JLabel labelDernierTourTaille = new JLabel();
@@ -22,35 +27,29 @@ public class FonctionDernierTourTaille implements ActionListener {
             String[] dernierTourTaille = tmp.derniereLigne("programme_papy/donnee/tourTaille.txt").split(",");//aller chercher le dernier poids
             int dernierTourTailleInt = Integer.parseInt(dernierTourTaille[0]);//Convertir le poids en int
 
+            labelDernierTourTaille.setFont(new Font("Arial", Font.BOLD, 16));
             labelDernierTourTaille.setText("Votre tour de taille actuel est " + dernierTourTailleInt + "cm.");
-            ancienTourTaille.setLayout(new GridBagLayout());
-            GridBagConstraints ctntAncienTourTaille = new GridBagConstraints();
-            ctntAncienTourTaille.insets = new Insets(10, 10, 10, 10);//padding des éléments du panel
-            ctntAncienTourTaille.gridx = 0;
-            ctntAncienTourTaille.gridwidth = 2;
-            ctntAncienTourTaille.gridy = 0;
-            ctntAncienTourTaille.gridx = 0;
-            ctntAncienTourTaille.gridy = 1;
-            ancienTourTaille.add(labelDernierTourTaille, ctntAncienTourTaille);
-            ctntAncienTourTaille.gridx = 0;
-            ctntAncienTourTaille.gridy = 2;
-            JButton boutonAfficherAncienTourTaille = new JButton();
-            boutonAfficherAncienTourTaille.setBackground(Color.WHITE);
-            boutonAfficherAncienTourTaille.setText("Afficher les anciens tour de taille");
-            boutonAfficherAncienTourTaille.addActionListener(this);
-            ancienTourTaille.add(boutonAfficherAncienTourTaille, ctntAncienTourTaille);
+            labelDernierTourTaille.addMouseListener(this);
+            labelDernierTourTaille.setForeground(CouleurForegroundLabel);
+            ancienTourTaille.setLayout(new GridLayout(1,1));
+            ancienTourTaille.setBackground(CouleurBleu);
+            ancienTourTaille.add(labelDernierTourTaille);
+
+            //bouton pour afficher les graphiques
+//            JButton boutonAfficherAncienTourTaille = new JButton();
+//            boutonAfficherAncienTourTaille.setBackground(Color.WHITE);
+//            boutonAfficherAncienTourTaille.setText("Afficher les anciens tour de taille");
+//            boutonAfficherAncienTourTaille.addActionListener(this);
+//            ancienTourTaille.add(boutonAfficherAncienTourTaille, ctntAncienTourTaille);
         }
         else {
+            labelDernierTourTaille.setFont(new Font("Arial", Font.BOLD, 16));
             labelDernierTourTaille.setText("Vous n'avez pas encore enregistrer de tour de taille.");
-            ancienTourTaille.setLayout(new GridBagLayout());
-            GridBagConstraints ctntAncienTourTaille = new GridBagConstraints();
-            ctntAncienTourTaille.insets = new Insets(10, 10, 10, 10);//padding des éléments du panel
-            ctntAncienTourTaille.gridx = 0;
-            ctntAncienTourTaille.gridwidth = 2;
-            ctntAncienTourTaille.gridy = 0;
-            ctntAncienTourTaille.gridx = 0;
-            ctntAncienTourTaille.gridy = 1;
-            ancienTourTaille.add(labelDernierTourTaille, ctntAncienTourTaille);
+            labelDernierTourTaille.addMouseListener(this);
+            labelDernierTourTaille.setForeground(CouleurForegroundLabel);
+            ancienTourTaille.setLayout(new GridLayout(1,1));
+            ancienTourTaille.setBackground(CouleurBleu);
+            ancienTourTaille.add(labelDernierTourTaille);
         }
     }
 
@@ -85,5 +84,30 @@ public class FonctionDernierTourTaille implements ActionListener {
 
     public JPanel getAncienTourTaille() {
         return ancienTourTaille;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        FrameReg.setPanel(getGraphTourTaille());
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        ancienTourTaille.setBackground(CouleurBleuClair);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        ancienTourTaille.setBackground(CouleurBleu);
     }
 }

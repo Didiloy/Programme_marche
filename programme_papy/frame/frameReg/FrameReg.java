@@ -8,7 +8,7 @@ public class FrameReg {
     static CardLayout cl = new CardLayout();
     public static JPanel panelReg = new JPanel();
     static JPanel panelRegCard = new JPanel();
-    public static JPanel panelDroite = new PanelDroiteReg();
+    public static JPanel panelGauche = new PanelDroiteReg();
     public FrameReg(){
         frameReg.setTitle("Programme de marche");
         frameReg.setSize(1200, 700);
@@ -22,13 +22,8 @@ public class FrameReg {
         panelRegCard.setLayout(cl);
 
 
-        //Panel du haut
-        PanelHautReg panelHaut = new PanelHautReg();
-        panelReg.add(panelHaut.getPanelHautReg(), BorderLayout.NORTH);
-        ///////////////
-
-        //Panel de droite
-        panelReg.add(panelDroite, BorderLayout.EAST);
+        //Panel de gauche
+        panelReg.add(panelGauche, BorderLayout.WEST);
         /////////////
 
         //Panel du centre

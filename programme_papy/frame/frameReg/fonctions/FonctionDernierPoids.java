@@ -9,14 +9,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.CountDownLatch;
 
 import static frame.frameReg.FrameReg.panelReg;
 
-public class FonctionDernierPoids implements ActionListener {
+public class FonctionDernierPoids implements ActionListener, MouseListener {
     JPanel ancienPoids = new JPanel();
+    Color CouleurBleu = new Color(83, 122, 204);
+    Color CouleurBleuClair = new Color(133, 156, 227);
+    Color CouleurForegroundLabel = new Color(207, 211, 214);
     public FonctionDernierPoids() {
         File f = new File("programme_papy/donnee/utilisateur.txt");
         JLabel labelDernierPoids = new JLabel();
@@ -35,43 +41,28 @@ public class FonctionDernierPoids implements ActionListener {
             int dernierPoidsInt = 0;//Convertir le poids en int
                 dernierPoidsInt = Integer.parseInt((String) dernierPoidsArrayList.get(3));
 
-
+            labelDernierPoids.setFont(new Font("Arial", Font.BOLD, 16));
             labelDernierPoids.setText("Votre poids actuel est " + dernierPoidsInt + "kg.");
-            ancienPoids.setLayout(new GridBagLayout());
-            GridBagConstraints ctntAncienPoids = new GridBagConstraints();
-            ctntAncienPoids.insets = new Insets(10, 10, 10, 10);//padding des éléments du panel
-            ctntAncienPoids.gridx = 0;
-            ctntAncienPoids.gridwidth = 2;
-            ctntAncienPoids.gridy = 0;
-            ancienPoids.add(labelTitreDernierPoids, ctntAncienPoids);
-            ctntAncienPoids.gridx = 0;
-            ctntAncienPoids.gridy = 1;
-            ancienPoids.add(labelDernierPoids, ctntAncienPoids);
-            ctntAncienPoids.gridx = 0;
-            ctntAncienPoids.gridy = 2;
-            JButton boutonAfficherAncienPoids = new JButton();
-            boutonAfficherAncienPoids.setBackground(Color.WHITE);
-            boutonAfficherAncienPoids.setText("Afficher les anciens poids");
-            boutonAfficherAncienPoids.addActionListener(this);
-            ancienPoids.add(boutonAfficherAncienPoids, ctntAncienPoids);
+            labelDernierPoids.addMouseListener(this);
+            labelDernierPoids.setForeground(CouleurForegroundLabel);
+            ancienPoids.setLayout(new GridLayout(1,1));
+            ancienPoids.setBackground(CouleurBleu);
+            ancienPoids.add(labelDernierPoids);
+           //Bouton pour afficher les graph des poids
+//            JButton boutonAfficherAncienPoids = new JButton();
+//            boutonAfficherAncienPoids.setBackground(Color.WHITE);
+//            boutonAfficherAncienPoids.setText("Afficher les anciens poids");
+//            boutonAfficherAncienPoids.addActionListener(this);
+//            ancienPoids.add(boutonAfficherAncienPoids, ctntAncienPoids);
         }
         else {
+            labelDernierPoids.setFont(new Font("Arial", Font.PLAIN, 16));
             labelDernierPoids.setText("Vous n'avez pas encore enregistrer de poids.");
-            ancienPoids.setLayout(new GridBagLayout());
-            GridBagConstraints ctntAncienPoids = new GridBagConstraints();
-            ctntAncienPoids.insets = new Insets(10, 10, 10, 10);//padding des éléments du panel
-            ctntAncienPoids.gridx = 0;
-            ctntAncienPoids.gridwidth = 2;
-            ctntAncienPoids.gridy = 0;
-            ancienPoids.add(labelTitreDernierPoids, ctntAncienPoids);
-            ctntAncienPoids.gridx = 0;
-            ctntAncienPoids.gridy = 1;
-            ancienPoids.add(labelDernierPoids, ctntAncienPoids);
-//			ctntAncienPoids.gridx = 0;
-//			ctntAncienPoids.gridy = 2;
-//			boutonAfficherAncienPoids.setText("Afficher les anciens poids");
-//			boutonAfficherAncienPoids.addActionListener(listenerBoutonAfficherAncienPoids);
-//			ancienPoids.add(boutonAfficherAncienPoids, ctntAncienPoids);
+            labelDernierPoids.addMouseListener(this);
+            labelDernierPoids.setForeground(CouleurForegroundLabel);
+            ancienPoids.setLayout(new GridLayout(1,1));
+            ancienPoids.setBackground(CouleurBleu);
+            ancienPoids.add(labelDernierPoids);
         }
     }
 
@@ -109,5 +100,30 @@ public class FonctionDernierPoids implements ActionListener {
     };
     public JPanel getAncienPoids() {
         return ancienPoids;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        FrameReg.setPanel(getGraphPoids());
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        ancienPoids.setBackground(CouleurBleuClair);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        ancienPoids.setBackground(CouleurBleu);
     }
 }
