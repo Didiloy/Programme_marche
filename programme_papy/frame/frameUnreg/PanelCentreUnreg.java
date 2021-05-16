@@ -6,7 +6,7 @@ import java.awt.*;
 public class PanelCentreUnreg {
     JPanel panelCentre = new JPanel();
     JLabel labelHaut = new JLabel();
-    Color couleurRose = new Color(194, 148, 178);
+    Color couleurRose = new Color(169, 129, 155);
     public PanelCentreUnreg() {
         panelCentre.setBackground(couleurRose);
         panelCentre.setLayout(new BorderLayout());
