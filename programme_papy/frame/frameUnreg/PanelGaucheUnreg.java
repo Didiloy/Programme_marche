@@ -67,7 +67,7 @@ public class PanelGaucheUnreg implements MouseListener {
         textFieldAge.setBorder(bordureTextfield);
         textFieldAge.setForeground(Color.white);
         textFieldAge.setFont(police);
-        TextPrompt TpAge = new TextPrompt("Age", textFieldAge);
+        TextPrompt TpAge = new TextPrompt("    Age", textFieldAge);
         TpAge.setFont(police);
         TpAge.setShow(TextPrompt.Show.ALWAYS);
         panelCentre.add(textFieldAge, constraint);
@@ -78,7 +78,7 @@ public class PanelGaucheUnreg implements MouseListener {
         textFieldPoids.setBorder(bordureTextfield);
         textFieldPoids.setForeground(Color.white);
         textFieldPoids.setFont(police);
-        TextPrompt TpPoids = new TextPrompt("Poids", textFieldPoids);
+        TextPrompt TpPoids = new TextPrompt("   Poids", textFieldPoids);
         TpPoids.setFont(police);
         TpPoids.setShow(TextPrompt.Show.ALWAYS);
         panelCentre.add(textFieldPoids, constraint);
