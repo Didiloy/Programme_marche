@@ -36,4 +36,5 @@ DATE DE DEBUT: 08/03/2021
 - bug supprime les marches sans supprimer le fichier
 - essayer de faire les 2 courbes de marche en une seule
 - Changer le panel du centre  
+- Couleur rose pour le centre de frameReg  
 - Latex  pour manuel d'utilisation du logiciel.
