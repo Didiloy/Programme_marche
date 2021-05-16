@@ -1,10 +1,7 @@
 DATE DE DEBUT: 08/03/2021
 
 # Important
-Pendant les test n'enregistrez pas plusieurs poids, marches ou tour de taille le meme jour. C'est un bug déjà connu. 
-Si vous le faite la courbe ne s'affichera pas et pour la faire s'afficher il faut modifier les fichier `.txt` 
-`donnee/tourTaille.txt`, `donnee/marche.txt` et `donnee/ancienPoids.txt` de façon a ce qu'il n'y ai pas 2 fois la meme date.
-___
+
 
 ### Fait
 - Premiere page change en fonction de si il y a déjà un utilisateur enregistré ou pas.
@@ -29,13 +26,14 @@ ___
 - date pour le poids (localDate)
 - date pour la taille
 - bug lors de l'enregistrement la date ne se met pas dans ancienPoids.txt
+- bug si deux dates sont les meme dans la courbe pour le poids elle n'est ajouté qu'une seule fois et donc la courbe n'est pas bonne
+- meme bug que pour la courbe du poids avec la courbe du tour de taille
+- Meme bug si deux marches sont a la meme date.
+
 
 ### A faire
 
 - bug supprime les marches sans supprimer le fichier
 - essayer de faire les 2 courbes de marche en une seule
-- bug si deux dates sont les meme dans la courbe pour le poids elle n'est ajouté qu'une seule fois et donc la courbe n'est pas bonne
-- meme bug que pour la courbe du poids avec la courbe du tour de taille  
-- Meme bug si deux marches sont a la meme date.
 - Changer le panel du centre  
 - Latex  pour manuel d'utilisation du logiciel.
