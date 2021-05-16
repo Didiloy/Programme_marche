@@ -1,7 +1,8 @@
 DATE DE DEBUT: 08/03/2021
 
 # Important
-
+Pour compiler le programme en ligne de commande utilisez cette commande: `javac -d out/ -cp lib/jfreechart-1.5.3.jar  -sourcepath programme_papy **/*.java`
+puis pour le lancer utilisez celle ci: `java -cp out/:lib/jfreechart-1.5.3.jar Main`
 
 ### Fait
 - Premiere page change en fonction de si il y a déjà un utilisateur enregistré ou pas.
