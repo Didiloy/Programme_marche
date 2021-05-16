@@ -1,2 +1,2 @@
 javac -d out/ -cp lib/jfreechart-1.5.3.jar  -sourcepath programme_papy **/*.java
-java -cp out/:/Programme_marche/lib/jfreechart-1.5.3.jar Main
+java -cp out/:lib/jfreechart-1.5.3.jar Main
