@@ -39,3 +39,4 @@ puis pour le lancer utilisez celle ci: `java -cp out/:lib/jfreechart-1.5.3.jar M
 - Changer le panel du centre  
 - Couleur rose pour le centre de frameReg  
 - Latex  pour manuel d'utilisation du logiciel.
+- système d'onglet pour les graphs ?
