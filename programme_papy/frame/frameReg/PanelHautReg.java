@@ -15,7 +15,7 @@ public class PanelHautReg {
     public PanelHautReg(){
         panelHautReg.setPreferredSize(new Dimension(10, 50));
         panelHautReg.setBackground(backgroundCentre);
-        panelHautReg.setLayout(new GridLayout(1,5));
+        panelHautReg.setLayout(new GridLayout(1,3));
 
         LabelMarchePanelCentre labelMarche = new LabelMarchePanelCentre();
         panelHautReg.add(labelMarche.getConteneur());
