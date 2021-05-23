@@ -14,10 +14,10 @@ public class panelDroiteEnregistrerNouveauTourTaille implements ActionListener, 
 
 
         JPanel enregistrerTourTaille = new JPanel(new GridLayout(1, 1));
-        JLabel LabelEnregistrerTourTaille = new JLabel("Enregistrer un nouveau tour de taille");
+        JLabel LabelEnregistrerTourTaille = new JLabel("    Nouveau tour de taille");
         Color CouleurBleu = new Color(83, 122, 204);
         Color CouleurBleuClair = new Color(133, 156, 227);
-        Color CouleurForegroundLabel = new Color(207, 211, 214);
+        Color CouleurForegroundLabel = new Color(255, 255, 255);
 
         JPanel nouveauTourTaille = new JPanel();
 

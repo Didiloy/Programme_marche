@@ -12,10 +12,10 @@ import static frame.frameReg.PanelCentreReg.conteneurPanelCentre;
 
 public class panelDroiteEnregistrerNouvelleMarche implements MouseListener, ActionListener {
     JPanel enregistrerMarche = new JPanel(new GridLayout(1, 1));
-    JLabel LabelEnregistrermMarche = new JLabel("Enregistrer une nouvelle marche");
+    JLabel LabelEnregistrermMarche = new JLabel("    Nouvelle marche");
     Color CouleurBleu = new Color(83, 122, 204);
     Color CouleurBleuClair = new Color(133, 156, 227);
-    Color CouleurForegroundLabel = new Color(207, 211, 214);
+    Color CouleurForegroundLabel = new Color(255, 255, 255);
 
     JPanel nouvelleMarche = new JPanel();
 

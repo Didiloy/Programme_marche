@@ -14,7 +14,7 @@ public class PanelDroiteReg extends JPanel{
     Color CouleurBleu = new Color(83, 122, 204);
 
     public PanelDroiteReg() {
-        this.setPreferredSize(new Dimension(300, 100));
+        this.setPreferredSize(new Dimension(200, 100));
 		this.setBackground(CouleurBleu);
         //this.setBorder(borderNoir); //Bordure
         this.setLayout(new BorderLayout());

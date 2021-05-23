@@ -13,10 +13,10 @@ import static frame.frameReg.PanelCentreReg.conteneurPanelCentre;
 public class panelDroiteEnregistrerNouveauPoids implements ActionListener, MouseListener {
 
         JPanel enregistrerPoids = new JPanel(new GridLayout(1, 1));
-        JLabel LabelEnregistrerPoids = new JLabel("Enregistrer un nouveau poids");
+        JLabel LabelEnregistrerPoids = new JLabel("    Nouveau poids");
         Color CouleurBleu = new Color(83, 122, 204);
         Color CouleurBleuClair = new Color(133, 156, 227);
-        Color CouleurForegroundLabel = new Color(207, 211, 214);
+        Color CouleurForegroundLabel = new Color(255, 255, 255);
 
         JPanel nouveauPoids = new JPanel();
 

@@ -19,7 +19,7 @@ public class LabelTaillePanelCentre implements MouseListener {
     JPanel conteneur = new JPanel(new GridBagLayout());
     public LabelTaillePanelCentre() {
         labelTaille.setBackground(backgroundCentre);
-        labelTaille.setForeground(Color.WHITE.darker());
+        labelTaille.setForeground(Color.WHITE);
         labelTaille.setFont(police);
         labelTaille.addMouseListener(this);
         conteneur.setBackground(backgroundCentre);

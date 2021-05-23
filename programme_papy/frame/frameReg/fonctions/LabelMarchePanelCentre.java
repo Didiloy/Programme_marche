@@ -19,7 +19,7 @@ public class LabelMarchePanelCentre implements MouseListener {
     JPanel conteneur = new JPanel(new GridBagLayout());
     public LabelMarchePanelCentre() {
         labelMarche.setBackground(backgroundCentre);
-        labelMarche.setForeground(Color.WHITE.darker());
+        labelMarche.setForeground(Color.WHITE);
         labelMarche.setFont(police);
         labelMarche.addMouseListener(this);
         conteneur.setBackground(backgroundCentre);
