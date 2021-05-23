@@ -20,17 +20,8 @@ public class PanelHautReg {
         LabelMarchePanelCentre labelMarche = new LabelMarchePanelCentre();
         panelHautReg.add(labelMarche.getConteneur());
 
-//        JPanel panelvide = new JPanel();
-//        panelvide.setBackground(backgroundCentre);
-//        panelHautReg.add(panelvide);
-
-
         LabelPoidsPanelCentre labelPoids = new LabelPoidsPanelCentre();
         panelHautReg.add(labelPoids.getConteneur());
-
-//        JPanel panelVide2 = new JPanel();
-//        panelVide2.setBackground(backgroundCentre);
-//        panelHautReg.add(panelVide2);
 
         LabelTaillePanelCentre labelTaille = new LabelTaillePanelCentre();
         panelHautReg.add(labelTaille.getConteneur());
