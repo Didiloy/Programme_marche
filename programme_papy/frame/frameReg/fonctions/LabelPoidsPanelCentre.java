@@ -15,7 +15,7 @@ public class LabelPoidsPanelCentre implements MouseListener {
     Color backgroundCentre = new Color(54, 57, 63);
     Color backgroundCentreClair = new Color(77, 81, 89);
     Font police = new Font("Arial", Font.BOLD, 14);
-    JLabel labelPoids = new JLabel("Poids");
+    JLabel labelPoids = new JLabel("Poids",JLabel.CENTER);
     JPanel conteneur = new JPanel(new GridBagLayout());
     public LabelPoidsPanelCentre() {
         labelPoids.setBackground(backgroundCentre);

@@ -15,7 +15,7 @@ public class LabelTaillePanelCentre implements MouseListener {
     Color backgroundCentre = new Color(54, 57, 63);
     Color backgroundCentreClair = new Color(77, 81, 89);
     Font police = new Font("Arial", Font.BOLD, 14);
-    JLabel labelTaille = new JLabel("Tours de tailles");
+    JLabel labelTaille = new JLabel("Tours de tailles",JLabel.CENTER);
     JPanel conteneur = new JPanel(new GridBagLayout());
     public LabelTaillePanelCentre() {
         labelTaille.setBackground(backgroundCentre);

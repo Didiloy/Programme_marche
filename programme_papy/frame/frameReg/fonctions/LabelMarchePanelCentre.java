@@ -15,7 +15,7 @@ public class LabelMarchePanelCentre implements MouseListener {
     Color backgroundCentre = new Color(54, 57, 63);
     Color backgroundCentreClair = new Color(77, 81, 89);
     Font police = new Font("Arial", Font.BOLD, 14);
-    JLabel labelMarche = new JLabel("Marches");
+    JLabel labelMarche = new JLabel("Marches",JLabel.CENTER);
     JPanel conteneur = new JPanel(new GridBagLayout());
     public LabelMarchePanelCentre() {
         labelMarche.setBackground(backgroundCentre);
