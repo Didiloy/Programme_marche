@@ -13,15 +13,24 @@ public class PanelHautReg {
     Color backgroundCentre = new Color(54, 57, 63);
     JPanel panelHautReg = new JPanel();
     public PanelHautReg(){
-        panelHautReg.setPreferredSize(new Dimension(100, 50));
+        panelHautReg.setPreferredSize(new Dimension(50, 50));
         panelHautReg.setBackground(backgroundCentre);
-        panelHautReg.setLayout(new FlowLayout());
+        panelHautReg.setLayout(new GridLayout(1,5));
 
         LabelMarchePanelCentre labelMarche = new LabelMarchePanelCentre();
         panelHautReg.add(labelMarche.getConteneur());
 
+        JPanel panelvide = new JPanel();
+        panelvide.setBackground(backgroundCentre);
+        panelHautReg.add(panelvide);
+
+
         LabelPoidsPanelCentre labelPoids = new LabelPoidsPanelCentre();
         panelHautReg.add(labelPoids.getConteneur());
+
+        JPanel panelVide2 = new JPanel();
+        panelVide2.setBackground(backgroundCentre);
+        panelHautReg.add(panelVide2);
 
         LabelTaillePanelCentre labelTaille = new LabelTaillePanelCentre();
         panelHautReg.add(labelTaille.getConteneur());

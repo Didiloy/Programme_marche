@@ -19,17 +19,12 @@ public class PanelCentreReg implements ActionListener, MouseListener {
     public static JPanel panelCentre = new JPanel();
     public static CardLayout cl = new CardLayout();
     Color backgroundCentre = new Color(54, 57, 63);
-    JButton boutonRetour = new JButton("Retour");
-    JPanel nouvelleMarche;
-    JPanel nouveauPoids;
-    JPanel nouveauTourTaille;
     JPanel graphMarche;
 
     public PanelCentreReg(){
         conteneurPanelCentre.setLayout(cl);
 		panelCentre.setBackground(backgroundCentre);
         panelCentre.setLayout(new BorderLayout());
-//        panelCentre.setLayout(new GridLayout(10, 1, 5, 5));
 
        //Panel du haut
         PanelHautReg panelHaut = new PanelHautReg();
@@ -51,14 +46,6 @@ public class PanelCentreReg implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent actionEvent) {
 
     }
-
-
-    ActionListener listenerBoutonRetour = new ActionListener() { // Afficher le panel pour enregistrer une nouvelle marche
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            cl.show(conteneurPanelCentre, "panelCentre");
-        }
-    };
 
     public JPanel getConteneurPanelCentre() {
         return conteneurPanelCentre;

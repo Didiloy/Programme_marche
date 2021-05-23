@@ -14,15 +14,16 @@ import static frame.frameReg.PanelCentreReg.panelCentre;
 public class LabelMarchePanelCentre implements MouseListener {
     Color backgroundCentre = new Color(54, 57, 63);
     Color backgroundCentreClair = new Color(77, 81, 89);
-    Font police = new Font("Arial", Font.PLAIN, 14);
+    Font police = new Font("Arial", Font.BOLD, 14);
     JLabel labelMarche = new JLabel("Marches");
-    JPanel conteneur = new JPanel(new FlowLayout());
+    JPanel conteneur = new JPanel(new GridBagLayout());
     public LabelMarchePanelCentre() {
         labelMarche.setBackground(backgroundCentre);
         labelMarche.setForeground(Color.WHITE.darker());
         labelMarche.setFont(police);
         labelMarche.addMouseListener(this);
         conteneur.setBackground(backgroundCentre);
+        conteneur.addMouseListener(this);
         conteneur.add(labelMarche);
     }
 

@@ -14,15 +14,16 @@ import static frame.frameReg.PanelCentreReg.panelCentre;
 public class LabelTaillePanelCentre implements MouseListener {
     Color backgroundCentre = new Color(54, 57, 63);
     Color backgroundCentreClair = new Color(77, 81, 89);
-    Font police = new Font("Arial", Font.PLAIN, 14);
+    Font police = new Font("Arial", Font.BOLD, 14);
     JLabel labelTaille = new JLabel("Tours de tailles");
-    JPanel conteneur = new JPanel(new FlowLayout());
+    JPanel conteneur = new JPanel(new GridBagLayout());
     public LabelTaillePanelCentre() {
         labelTaille.setBackground(backgroundCentre);
         labelTaille.setForeground(Color.WHITE.darker());
         labelTaille.setFont(police);
         labelTaille.addMouseListener(this);
         conteneur.setBackground(backgroundCentre);
+        conteneur.addMouseListener(this);
         conteneur.add(labelTaille);
     }
 
