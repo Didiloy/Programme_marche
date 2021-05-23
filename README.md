@@ -30,13 +30,12 @@ puis pour le lancer utilisez celle ci: `java -cp out/:lib/jfreechart-1.5.3.jar M
 - bug si deux dates sont les meme dans la courbe pour le poids elle n'est ajouté qu'une seule fois et donc la courbe n'est pas bonne
 - meme bug que pour la courbe du poids avec la courbe du tour de taille
 - Meme bug si deux marches sont a la meme date.
-
+- Changer le panel du centre
+- système d'onglet pour les graphs ?
 
 ### A faire
 
 - bug supprime les marches sans supprimer le fichier
 - essayer de faire les 2 courbes de marche en une seule
-- Changer le panel du centre  
-- Couleur rose pour le centre de frameReg  
 - Latex  pour manuel d'utilisation du logiciel.
-- système d'onglet pour les graphs ?
+

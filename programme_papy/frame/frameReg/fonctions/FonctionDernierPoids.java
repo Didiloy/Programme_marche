@@ -23,6 +23,8 @@ public class FonctionDernierPoids implements ActionListener, MouseListener {
     Color CouleurBleu = new Color(83, 122, 204);
     Color CouleurBleuClair = new Color(133, 156, 227);
     Color CouleurForegroundLabel = new Color(207, 211, 214);
+    Color backgroundCentre = new Color(54, 57, 63);
+    Font police = new Font("Arial", Font.PLAIN, 14);
     public FonctionDernierPoids() {
         File f = new File("programme_papy/donnee/utilisateur.txt");
         JLabel labelDernierPoids = new JLabel();
@@ -48,12 +50,6 @@ public class FonctionDernierPoids implements ActionListener, MouseListener {
             ancienPoids.setLayout(new GridLayout(1,1));
             ancienPoids.setBackground(CouleurBleu);
             ancienPoids.add(labelDernierPoids);
-           //Bouton pour afficher les graph des poids
-//            JButton boutonAfficherAncienPoids = new JButton();
-//            boutonAfficherAncienPoids.setBackground(Color.WHITE);
-//            boutonAfficherAncienPoids.setText("Afficher les anciens poids");
-//            boutonAfficherAncienPoids.addActionListener(this);
-//            ancienPoids.add(boutonAfficherAncienPoids, ctntAncienPoids);
         }
         else {
             labelDernierPoids.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -73,9 +69,12 @@ public class FonctionDernierPoids implements ActionListener, MouseListener {
 
     public JPanel getGraphPoids(){
         JPanel panelAnciensPoids = new JPanel(new BorderLayout());
+        panelAnciensPoids.setBackground(backgroundCentre);
         JPanel panelGraphAnciensPoids = new JPanel(new GridLayout(1, 1));
         JPanel panelSudAnciensPoids = new JPanel(new GridLayout(2, 1));
+        panelSudAnciensPoids.setBackground(backgroundCentre);
             JPanel panelSudMoyennePoids = new JPanel(new FlowLayout());
+            panelSudMoyennePoids.setBackground(backgroundCentre);
 
         GraphPoids graphPoids = new GraphPoids();
         panelGraphAnciensPoids.add(graphPoids.getCharPanel());
@@ -83,21 +82,14 @@ public class FonctionDernierPoids implements ActionListener, MouseListener {
 
         FonctionMoyennePoids moyennePoids = new FonctionMoyennePoids();
         JLabel labelMoyennePoids =new JLabel("La moyenne de tout les poids entrés est "+ moyennePoids.getMoyenne() + "kg.");
+        labelMoyennePoids.setForeground(Color.white);
+        labelMoyennePoids.setFont(police);
         panelSudMoyennePoids.add(labelMoyennePoids);
         panelSudAnciensPoids.add(panelSudMoyennePoids);
-        JButton boutonRetour = new JButton("retour a l'acceuil");//ajout du bouton pour le retour à l'acceuil
-        boutonRetour.addActionListener(listenerBoutonRetour);
-        panelSudAnciensPoids.add(boutonRetour);
         panelAnciensPoids.add(panelSudAnciensPoids, BorderLayout.SOUTH);
 
         return panelAnciensPoids;
     }
-    ActionListener listenerBoutonRetour = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            FrameReg.setPanel(panelReg);
-        }
-    };
     public JPanel getAncienPoids() {
         return ancienPoids;
     }

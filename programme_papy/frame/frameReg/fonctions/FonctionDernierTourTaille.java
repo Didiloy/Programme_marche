@@ -19,6 +19,7 @@ public class FonctionDernierTourTaille implements ActionListener, MouseListener 
     Color CouleurBleu = new Color(83, 122, 204);
     Color CouleurBleuClair = new Color(133, 156, 227);
     Color CouleurForegroundLabel = new Color(207, 211, 214);
+    Color backgroundCentre = new Color(54, 57, 63);
     public FonctionDernierTourTaille() {
         File f = new File("programme_papy/donnee/tourTaille.txt");
         JLabel labelDernierTourTaille = new JLabel();
@@ -35,12 +36,6 @@ public class FonctionDernierTourTaille implements ActionListener, MouseListener 
             ancienTourTaille.setBackground(CouleurBleu);
             ancienTourTaille.add(labelDernierTourTaille);
 
-            //bouton pour afficher les graphiques
-//            JButton boutonAfficherAncienTourTaille = new JButton();
-//            boutonAfficherAncienTourTaille.setBackground(Color.WHITE);
-//            boutonAfficherAncienTourTaille.setText("Afficher les anciens tour de taille");
-//            boutonAfficherAncienTourTaille.addActionListener(this);
-//            ancienTourTaille.add(boutonAfficherAncienTourTaille, ctntAncienTourTaille);
         }
         else {
             labelDernierTourTaille.setFont(new Font("Arial", Font.BOLD, 16));
@@ -60,28 +55,20 @@ public class FonctionDernierTourTaille implements ActionListener, MouseListener 
 
     public JPanel getGraphTourTaille(){
         JPanel panelAnciensTourTaille = new JPanel(new BorderLayout());
+        panelAnciensTourTaille.setBackground(backgroundCentre);
         JPanel panelGraphAnciensTourTaille = new JPanel(new GridLayout(1, 1));
+        panelGraphAnciensTourTaille.setBackground(backgroundCentre);
         JPanel panelSudAnciensTourTaille = new JPanel(new GridLayout(1, 1));
+        panelSudAnciensTourTaille.setBackground(backgroundCentre);
 
 
         GraphTourTaille graphTourTaille = new GraphTourTaille();
         panelGraphAnciensTourTaille.add(graphTourTaille.getCharPanel());
         panelAnciensTourTaille.add(panelGraphAnciensTourTaille, BorderLayout.CENTER); //J'ajoute le panel des graphs au panel
-
-        JButton boutonRetour = new JButton("retour a l'acceuil");//ajout du bouton pour le retour à l'acceuil
-        boutonRetour.addActionListener(listenerBoutonRetour);
-        panelSudAnciensTourTaille.add(boutonRetour);
         panelAnciensTourTaille.add(panelSudAnciensTourTaille, BorderLayout.SOUTH);
 
         return panelAnciensTourTaille;
     }
-    ActionListener listenerBoutonRetour = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            FrameReg.setPanel(panelReg);
-        }
-    };
-
     public JPanel getAncienTourTaille() {
         return ancienTourTaille;
     }

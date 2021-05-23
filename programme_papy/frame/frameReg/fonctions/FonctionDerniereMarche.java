@@ -20,6 +20,8 @@ public class FonctionDerniereMarche implements ActionListener, MouseListener {
     Color CouleurBleu = new Color(83, 122, 204);
     Color CouleurBleuClair = new Color(133, 156, 227);
     Color CouleurForegroundLabel = new Color(207, 211, 214);
+    Color backgroundCentre = new Color(54, 57, 63);
+    Font police = new Font("Arial", Font.PLAIN, 14);
     public FonctionDerniereMarche() {
         File f = new File("programme_papy/donnee/marche.txt");
         JLabel labelDerniereMarche = new JLabel();
@@ -67,12 +69,6 @@ public class FonctionDerniereMarche implements ActionListener, MouseListener {
             ancienneMarche.setBackground(CouleurBleu);
             ancienneMarche.addMouseListener(this);
             ancienneMarche.add(labelDerniereMarche);
-            //Bouton pour afficher les anciennes marches
-//            JButton boutonAfficherAncienneMarche = new JButton();
-//            boutonAfficherAncienneMarche.setBackground(Color.WHITE);
-//            boutonAfficherAncienneMarche.setText("Afficher les anciennes marches");
-//            boutonAfficherAncienneMarche.addActionListener(this);
-//            ancienneMarche.add(boutonAfficherAncienneMarche, ctntAncienneMarche);
         } else {//Si il n'y a pas d'ancienne marche
             labelDerniereMarche.setFont(new Font("Arial", Font.BOLD, 14));
             labelDerniereMarche.setForeground(CouleurForegroundLabel);
@@ -94,8 +90,11 @@ public class FonctionDerniereMarche implements ActionListener, MouseListener {
 
     public JPanel getGraphMarche(){
         JPanel panelAnciennesMarches = new JPanel(new BorderLayout());
+        panelAnciennesMarches.setBackground(backgroundCentre);
         JPanel panelCentreAnciennesMarches = new JPanel(new GridLayout(1, 2, 2, 2));
+        panelCentreAnciennesMarches.setBackground(backgroundCentre);
         JPanel panelSudAnciennesMarches = new JPanel();
+
 
         GraphDistanceDate graphDistanceDate = new GraphDistanceDate();
         GraphTempsDate graphTempsDate = new GraphTempsDate();//J'ajoute le premier graph au panel.
@@ -104,21 +103,24 @@ public class FonctionDerniereMarche implements ActionListener, MouseListener {
         panelAnciennesMarches.add(panelCentreAnciennesMarches, BorderLayout.CENTER); //J'ajoute le panel des graphs au panel
 
         panelSudAnciennesMarches.setPreferredSize(new Dimension(100, 150));
-        panelSudAnciennesMarches.setBackground(Color.LIGHT_GRAY);
+        panelSudAnciennesMarches.setBackground(backgroundCentre);
         panelSudAnciennesMarches.setLayout(new GridLayout(4, 1));
         try {
             FonctionMoyenneTempsMarche tempsMoyen = new FonctionMoyenneTempsMarche();
             JLabel labelTempsMoyen = new JLabel("En moyenne vous marchez "+  tempsMoyen.getHeure() + " heures " + tempsMoyen.getMinute()+ " minutes.");
+            labelTempsMoyen.setFont(police);
+            labelTempsMoyen.setForeground(Color.white);
             FonctionTotalDistanceMarche totaleDistance = new FonctionTotalDistanceMarche();
             JLabel labelTotaleDistance = new JLabel("Vous avez marché sur une distance totale de "+ totaleDistance.getSomme() + "kms.");
+            labelTotaleDistance.setFont(police);
+            labelTotaleDistance.setForeground(Color.white);
             FonctionTotalTempsMarche totalTempsMarche = new FonctionTotalTempsMarche();
             JLabel labelTotalTemps = new JLabel("Vous avez marchés un temps total de "+ totalTempsMarche.getHeures() + " heures "+ totalTempsMarche.getMinutes() + " minutes.");
-            JButton boutonRetour = new JButton("retour à l'acceuil");
-            boutonRetour.addActionListener(listenerBoutonRetour);
+            labelTotalTemps.setFont(police);
+            labelTotalTemps.setForeground(Color.white);
             panelSudAnciennesMarches.add(labelTotaleDistance);
             panelSudAnciennesMarches.add(labelTempsMoyen);
             panelSudAnciennesMarches.add(labelTotalTemps);
-            panelSudAnciennesMarches.add(boutonRetour);
 
             panelAnciennesMarches.add(panelSudAnciennesMarches, BorderLayout.SOUTH);
         } catch (IOException e) {
@@ -132,12 +134,6 @@ public class FonctionDerniereMarche implements ActionListener, MouseListener {
         return ancienneMarche;
     }
 
-    ActionListener listenerBoutonRetour = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            FrameReg.setPanel(panelReg);
-        }
-    };
 
     @Override
     public void mouseClicked(MouseEvent e) {
