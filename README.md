@@ -37,5 +37,6 @@ puis pour le lancer utilisez celle ci: `java -cp out/:lib/jfreechart-1.5.3.jar M
 
 - bug supprime les marches sans supprimer le fichier
 - essayer de faire les 2 courbes de marche en une seule
+- bug quand on est déja allé sur enregistrer une nouvelle donnée puis qu'on revient a l'acceuil et qu'on va sur poids ou taille et qu'on revient sur enregistrer une nouvelle donnée les placeholder disparaissent  
 - Latex  pour manuel d'utilisation du logiciel.
 
