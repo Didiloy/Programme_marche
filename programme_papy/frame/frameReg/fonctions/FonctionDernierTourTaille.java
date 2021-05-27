@@ -20,6 +20,7 @@ public class FonctionDernierTourTaille implements ActionListener, MouseListener 
     Color CouleurBleuClair = new Color(133, 156, 227);
     Color CouleurForegroundLabel = new Color(207, 211, 214);
     Color backgroundCentre = new Color(54, 57, 63);
+    Font police = new Font("Arial", Font.PLAIN, 14);
     public FonctionDernierTourTaille() {
         File f = new File("programme_papy/donnee/tourTaille.txt");
         JLabel labelDernierTourTaille = new JLabel();
@@ -58,13 +59,21 @@ public class FonctionDernierTourTaille implements ActionListener, MouseListener 
         panelAnciensTourTaille.setBackground(backgroundCentre);
         JPanel panelGraphAnciensTourTaille = new JPanel(new GridLayout(1, 1));
         panelGraphAnciensTourTaille.setBackground(backgroundCentre);
-        JPanel panelSudAnciensTourTaille = new JPanel(new GridLayout(1, 1));
+        JPanel panelSudAnciensTourTaille = new JPanel(new FlowLayout());
+        panelSudAnciensTourTaille.setPreferredSize(new Dimension(100, 54));
         panelSudAnciensTourTaille.setBackground(backgroundCentre);
 
 
         GraphTourTaille graphTourTaille = new GraphTourTaille();
         panelGraphAnciensTourTaille.add(graphTourTaille.getCharPanel());
         panelAnciensTourTaille.add(panelGraphAnciensTourTaille, BorderLayout.CENTER); //J'ajoute le panel des graphs au panel
+
+        FonctionMoyenneTourTaille mtt = new FonctionMoyenneTourTaille();
+        JLabel moyenneTaille = new JLabel("La moyenne des tours de taille entrés est: " + mtt.getMoyenne() + "cm");
+        moyenneTaille.setForeground(Color.white);
+        moyenneTaille.setFont(police);
+        panelSudAnciensTourTaille.add(moyenneTaille);
+
         panelAnciensTourTaille.add(panelSudAnciensTourTaille, BorderLayout.SOUTH);
 
         return panelAnciensTourTaille;
