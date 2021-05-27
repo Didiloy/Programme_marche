@@ -124,6 +124,7 @@ public class FonctionNouveauPoids implements MouseListener {
             JOptionPane.showMessageDialog(null, "Nouveau Poids enregistré !",
                     "Programme de Marche", JOptionPane.INFORMATION_MESSAGE);//Je met le popup qui indique que la marche est enregistrée
 
+            textNouveauPoids.setText("");
             BorderLayout layout = (BorderLayout)panelReg.getLayout();
             panelReg.remove(layout.getLayoutComponent(BorderLayout.EAST));
             panelReg.add(new PanelDroiteReg(), BorderLayout.EAST);

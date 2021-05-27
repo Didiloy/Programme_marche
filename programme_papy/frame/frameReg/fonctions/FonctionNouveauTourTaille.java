@@ -122,7 +122,7 @@ public class FonctionNouveauTourTaille implements MouseListener {
         cl.show(conteneurPanelCentre, "panelCentre"); //On repasse au panelCentre
         JOptionPane.showMessageDialog(null, "Nouveau tour de taille enregistré !",
                 "Programme de Marche", JOptionPane.INFORMATION_MESSAGE);//Je met le popup qui indique que la marche est enregistrée
-
+        textNouveauTourTaille.setText("");
         BorderLayout layout = (BorderLayout)panelReg.getLayout();
         panelReg.remove(layout.getLayoutComponent(BorderLayout.EAST));
         panelReg.add(new PanelDroiteReg(), BorderLayout.EAST);

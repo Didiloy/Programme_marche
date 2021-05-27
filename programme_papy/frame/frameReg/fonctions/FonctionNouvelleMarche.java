@@ -153,9 +153,11 @@ public class FonctionNouvelleMarche implements MouseListener {
         cl.show(conteneurPanelCentre, "panelCentre"); //On repasse au panelCentre
         JOptionPane.showMessageDialog(null, "Nouvelle marche enregistrée !",
                 "Programme de Marche", JOptionPane.INFORMATION_MESSAGE);//Je met le popup qui indique que la marche est enregistrée
-
-
+        textDate.setText("");
+        textTemps.setText("");
+        textDistance.setText("");
         BorderLayout layout = (BorderLayout)panelReg.getLayout();
+
         panelReg.remove(layout.getLayoutComponent(BorderLayout.EAST));
         panelReg.add(new PanelDroiteReg(), BorderLayout.EAST);
         panelReg.updateUI();
