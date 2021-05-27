@@ -31,15 +31,6 @@ public class panelDroiteEnregistrerNouvelleMarche implements MouseListener, Acti
     }
     @Override
     public void mouseClicked(MouseEvent e) {
-        GridBagConstraints ctntMarche = new GridBagConstraints();
-        ctntMarche.insets = new Insets(10, 10, 10, 10);//padding des éléments du panel
-        ctntMarche.gridx = 0;
-        ctntMarche.gridwidth = 2;
-        ctntMarche.gridy = 4;
-        JButton boutonRetour = new JButton();
-        boutonRetour.setText("Annuler");
-        nouvelleMarche.add(boutonRetour, ctntMarche);
-        boutonRetour.addActionListener(this);
         conteneurPanelCentre.add(nouvelleMarche, "nouvelleMarche");
         cl.show(conteneurPanelCentre,"nouvelleMarche");
     }

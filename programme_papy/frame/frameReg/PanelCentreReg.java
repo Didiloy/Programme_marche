@@ -2,9 +2,6 @@ package frame.frameReg;
 
 
 import frame.frameReg.fonctions.FonctionDerniereMarche;
-import frame.frameReg.fonctions.FonctionNouveauPoids;
-import frame.frameReg.fonctions.FonctionNouveauTourTaille;
-import frame.frameReg.fonctions.FonctionNouvelleMarche;
 
 import javax.swing.*;
 import java.awt.*;

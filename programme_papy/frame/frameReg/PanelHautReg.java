@@ -6,8 +6,7 @@ import frame.frameReg.fonctions.LabelTaillePanelCentre;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+
 
 public class PanelHautReg {
     Color backgroundCentre = new Color(54, 57, 63);
