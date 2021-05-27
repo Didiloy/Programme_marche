@@ -1,12 +1,16 @@
 package frame.frameReg.fonctions;
 
 import frame.Personne;
+import frame.TextPrompt;
 import frame.frameReg.PanelDroiteReg;
 
 import javax.swing.*;
+import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.*;
 import java.time.LocalDate;
 
@@ -15,45 +19,89 @@ import static frame.frameReg.FrameReg.panelReg;
 import static frame.frameReg.PanelCentreReg.cl;
 import static frame.frameReg.PanelCentreReg.conteneurPanelCentre;
 
-public class FonctionNouveauPoids implements ActionListener{
+public class FonctionNouveauPoids implements MouseListener {
+    JPanel conteneur = new JPanel( new BorderLayout());
+    JPanel panelHaut = new JPanel( new BorderLayout());
     JPanel nouveauPoids = new JPanel();
     JTextField textNouveauPoids = new JTextField(10);
+    Color backgroundCentre = new Color(54, 57, 63);
+    Color backgroundCentreClair = new Color(77, 81, 89);
+    MatteBorder bordureTextfield = new MatteBorder(0,0,2,0, Color.white);
+    Font police = new Font("Arial", Font.BOLD, 14);
+    JPanel panelEnregistrer = new JPanel(new FlowLayout());
     public FonctionNouveauPoids(){
-        nouveauPoids.setBackground(Color.LIGHT_GRAY);
+        nouveauPoids.setBackground(backgroundCentre);
         nouveauPoids.setLayout(new GridBagLayout());
         GridBagConstraints ctntPoids = new GridBagConstraints();
         ctntPoids.insets = new Insets(10, 10, 10, 10);//padding des éléments du panel
         ctntPoids.gridx = 0;
-        ctntPoids.gridwidth = 2;
         ctntPoids.gridy = 0;
-        JLabel labelNouveauPoids = new JLabel("Veuillez entrer un nouveau poids:");
-        nouveauPoids.add(labelNouveauPoids, ctntPoids);
-
-        ctntPoids.gridx = 0;
-        ctntPoids.gridwidth = 1;
-        ctntPoids.gridy = 1;
-        JLabel labelPoids = new JLabel("Poids");
-        nouveauPoids.add(labelPoids, ctntPoids);
-
-        ctntPoids.gridx = 1;
-        ctntPoids.gridy = 1;
+        textNouveauPoids.setOpaque(false);
+        textNouveauPoids.setBorder(bordureTextfield);
+        textNouveauPoids.setForeground(Color.white);
+        textNouveauPoids.setFont(police);
+        TextPrompt TpDate = new TextPrompt("Poids", textNouveauPoids); //Le textPrompt c'est pour ne mettre le texte que quand le jtextfield n'as pas le focus ou est vide
+        TpDate.setFont(police);
+        TpDate.setShow(TextPrompt.Show.ALWAYS);
         nouveauPoids.add(textNouveauPoids, ctntPoids);
 
-        ctntPoids.gridx = 1;
-        ctntPoids.gridwidth =1;
-        ctntPoids.gridy = 2;
-        JButton boutonPoids = new JButton("Enregistrer");
-        nouveauPoids.add(boutonPoids, ctntPoids);
-        boutonPoids.addActionListener(this);
+        ctntPoids.gridx = 0;
+        ctntPoids.gridy = 1;
+        panelEnregistrer.setBackground(backgroundCentre);
+        JLabel enregistrer = new JLabel("Enregistrer");
+        enregistrer.setForeground(Color.white);
+        enregistrer.setFont(new Font("Arial", Font.BOLD, 16));
+        panelEnregistrer.add(enregistrer);
+        nouveauPoids.add(panelEnregistrer, ctntPoids);
+        panelEnregistrer.addMouseListener(this);
         //================================================
+
+        conteneur.add(nouveauPoids, BorderLayout.CENTER);
+
+        panelHaut.setPreferredSize(new Dimension(100, 30));
+        panelHaut.setBackground(backgroundCentre);
+        JPanel panelRetour = new JPanel(new FlowLayout());
+        panelRetour.setBackground(backgroundCentre);
+        JLabel labelRetour = new JLabel("Retour");
+        labelRetour.setFont(police);
+        labelRetour.setForeground(Color.white);
+        panelRetour.add(labelRetour);
+        panelRetour.addMouseListener(new MouseListener() { //Mouse listener pour le bouton retour
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                cl.show(conteneurPanelCentre, "panelCentre");
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                panelRetour.setBackground(backgroundCentreClair);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                panelRetour.setBackground(backgroundCentre);
+            }
+        });
+        panelHaut.add(panelRetour, BorderLayout.WEST);
+        conteneur.add(panelHaut, BorderLayout.NORTH);
     }
 
     public JPanel getNouveauPoids() {
-        return nouveauPoids;
+        return conteneur;
     }
 
     @Override
-    public void actionPerformed(ActionEvent actionEvent) {
+    public void mouseClicked(MouseEvent ev) {
         try {//Le true du filewriter c'est pour ouvrir le fichier en mode append
             BufferedReader br = new BufferedReader(new FileReader("programme_papy/donnee/utilisateur.txt"));
             String s="";
@@ -88,5 +136,25 @@ public class FonctionNouveauPoids implements ActionListener{
             //Print the error message
             System.out.print(e.getMessage());
         }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        panelEnregistrer.setBackground(backgroundCentreClair);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        panelEnregistrer.setBackground(backgroundCentre);
     }
 }

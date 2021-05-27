@@ -45,7 +45,7 @@ public class FonctionNouvelleMarche implements MouseListener {
         textDistance.setBorder(bordureTextfield);
         textDistance.setForeground(Color.white);
         textDistance.setFont(police);
-        TextPrompt TpDistance = new TextPrompt("Distance en m", textDistance); //Le textPrompt c'est pour ne mettre le texte que quand le jtextfield n'as pas le focus ou est vide
+        TextPrompt TpDistance = new TextPrompt("Distance (m)", textDistance); //Le textPrompt c'est pour ne mettre le texte que quand le jtextfield n'as pas le focus ou est vide
         TpDistance.setFont(police);
         TpDistance.setShow(TextPrompt.Show.ALWAYS);
         nouvelleMarche.add(textDistance, ctntMarche);
@@ -56,7 +56,7 @@ public class FonctionNouvelleMarche implements MouseListener {
         textTemps.setBorder(bordureTextfield);
         textTemps.setForeground(Color.white);
         textTemps.setFont(police);
-        TextPrompt TpTemps = new TextPrompt("En combien de temps ? (min)", textTemps); //Le textPrompt c'est pour ne mettre le texte que quand le jtextfield n'as pas le focus ou est vide
+        TextPrompt TpTemps = new TextPrompt("Durée (min)", textTemps); //Le textPrompt c'est pour ne mettre le texte que quand le jtextfield n'as pas le focus ou est vide
         TpTemps.setFont(police);
         TpTemps.setShow(TextPrompt.Show.ALWAYS);
         nouvelleMarche.add(textTemps, ctntMarche);
@@ -68,7 +68,7 @@ public class FonctionNouvelleMarche implements MouseListener {
         textDate.setBorder(bordureTextfield);
         textDate.setForeground(Color.white);
         textDate.setFont(police);
-        TextPrompt TpDate = new TextPrompt("Date du jour (format dd/mm/yyyy): ", textDate); //Le textPrompt c'est pour ne mettre le texte que quand le jtextfield n'as pas le focus ou est vide
+        TextPrompt TpDate = new TextPrompt("Date (format dd/mm/yyyy)", textDate); //Le textPrompt c'est pour ne mettre le texte que quand le jtextfield n'as pas le focus ou est vide
         TpDate.setFont(police);
         TpDate.setShow(TextPrompt.Show.ALWAYS);
         nouvelleMarche.add(textDate, ctntMarche);

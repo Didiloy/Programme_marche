@@ -33,15 +33,6 @@ public class panelDroiteEnregistrerNouveauTourTaille implements ActionListener, 
         }
         @Override
         public void mouseClicked(MouseEvent e) {
-            GridBagConstraints ctntMarche = new GridBagConstraints();
-            ctntMarche.insets = new Insets(10, 10, 10, 10);//padding des éléments du panel
-            ctntMarche.gridx = 0;
-            ctntMarche.gridwidth = 1;
-            ctntMarche.gridy = 2;
-            JButton boutonRetour = new JButton();
-            boutonRetour.setText("Annuler");
-            nouveauTourTaille.add(boutonRetour, ctntMarche);
-            boutonRetour.addActionListener(this);
             conteneurPanelCentre.add(nouveauTourTaille, "nouveauTourTaille");
             cl.show(conteneurPanelCentre,"nouveauTourTaille");
         }

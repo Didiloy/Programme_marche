@@ -32,15 +32,6 @@ public class panelDroiteEnregistrerNouveauPoids implements ActionListener, Mouse
         }
         @Override
         public void mouseClicked(MouseEvent e) {
-            GridBagConstraints ctntMarche = new GridBagConstraints();
-            ctntMarche.insets = new Insets(10, 10, 10, 10);//padding des éléments du panel
-            ctntMarche.gridx = 0;
-            ctntMarche.gridwidth = 1;
-            ctntMarche.gridy = 2;
-            JButton boutonRetour = new JButton();
-            boutonRetour.setText("Annuler");
-            nouveauPoids.add(boutonRetour, ctntMarche);
-            boutonRetour.addActionListener(this);
             conteneurPanelCentre.add(nouveauPoids, "nouveauPoids");
             cl.show(conteneurPanelCentre,"nouveauPoids");
         }

@@ -1,11 +1,15 @@
 package frame.frameReg.fonctions;
 
+import frame.TextPrompt;
 import frame.frameReg.PanelDroiteReg;
 
 import javax.swing.*;
+import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,57 +20,86 @@ import static frame.frameReg.FrameReg.panelReg;
 import static frame.frameReg.PanelCentreReg.cl;
 import static frame.frameReg.PanelCentreReg.conteneurPanelCentre;
 
-public class FonctionNouveauTourTaille implements ActionListener {
+public class FonctionNouveauTourTaille implements MouseListener {
+    JPanel conteneur = new JPanel( new BorderLayout());
+    JPanel panelHaut = new JPanel( new BorderLayout());
     JPanel nouveauTourTaille = new JPanel();
-    JTextField textNouveauTourTaille = new JTextField(10);
+    JTextField textNouveauTourTaille = new JTextField(20);
+    Color backgroundCentre = new Color(54, 57, 63);
+    Color backgroundCentreClair = new Color(77, 81, 89);
+    MatteBorder bordureTextfield = new MatteBorder(0,0,2,0, Color.white);
+    Font police = new Font("Arial", Font.BOLD, 14);
+    JPanel panelEnregistrer = new JPanel(new FlowLayout());
     public FonctionNouveauTourTaille(){
-        nouveauTourTaille.setBackground(Color.LIGHT_GRAY);
+        nouveauTourTaille.setBackground(backgroundCentre);
         nouveauTourTaille.setLayout(new GridBagLayout());
         GridBagConstraints ctntTourTaille = new GridBagConstraints();
         ctntTourTaille.insets = new Insets(10, 10, 10, 10);//padding des éléments du panel
         ctntTourTaille.gridx = 0;
-        ctntTourTaille.gridwidth = 2;
         ctntTourTaille.gridy = 0;
-        JLabel labelNouveauTourTaille = new JLabel("Quel est votre tour de taille actuel ?");
-        nouveauTourTaille.add(labelNouveauTourTaille, ctntTourTaille);
-
-        ctntTourTaille.gridx = 0;
-        ctntTourTaille.gridwidth = 1;
-        ctntTourTaille.gridy = 1;
-        JLabel tourTaille = new JLabel("Entrez votre tour de taille");
-        nouveauTourTaille.add(tourTaille, ctntTourTaille);
-
-        ctntTourTaille.gridx = 1;
-        ctntTourTaille.gridy = 1;
+        textNouveauTourTaille.setOpaque(false);
+        textNouveauTourTaille.setBorder(bordureTextfield);
+        textNouveauTourTaille.setForeground(Color.white);
+        textNouveauTourTaille.setFont(police);
+        TextPrompt TpDate = new TextPrompt("Tour de taille (cm)", textNouveauTourTaille); //Le textPrompt c'est pour ne mettre le texte que quand le jtextfield n'as pas le focus ou est vide
+        TpDate.setFont(police);
+        TpDate.setShow(TextPrompt.Show.ALWAYS);
         nouveauTourTaille.add(textNouveauTourTaille, ctntTourTaille);
 
-        ctntTourTaille.gridx = 1;
-        ctntTourTaille.gridwidth =1;
-        ctntTourTaille.gridy = 2;
-        JButton boutonTourTaille = new JButton();
-        boutonTourTaille.setText("Enregistrer");
-        nouveauTourTaille.add(boutonTourTaille, ctntTourTaille);
-        boutonTourTaille.addActionListener(this);
+        ctntTourTaille.gridx = 0;
+        ctntTourTaille.gridy = 1;
+        panelEnregistrer.setBackground(backgroundCentre);
+        JLabel enregistrer = new JLabel("Enregistrer");
+        enregistrer.setForeground(Color.white);
+        enregistrer.setFont(new Font("Arial", Font.BOLD, 16));
+        panelEnregistrer.add(enregistrer);
+        nouveauTourTaille.add(panelEnregistrer, ctntTourTaille);
+        panelEnregistrer.addMouseListener(this);
+
+        conteneur.add(nouveauTourTaille, BorderLayout.CENTER);
+
+        panelHaut.setPreferredSize(new Dimension(100, 30));
+        panelHaut.setBackground(backgroundCentre);
+        JPanel panelRetour = new JPanel(new FlowLayout());
+        panelRetour.setBackground(backgroundCentre);
+        JLabel labelRetour = new JLabel("Retour");
+        labelRetour.setFont(police);
+        labelRetour.setForeground(Color.white);
+        panelRetour.add(labelRetour);
+        panelRetour.addMouseListener(new MouseListener() { //Mouse listener pour le bouton retour
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                cl.show(conteneurPanelCentre, "panelCentre");
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                panelRetour.setBackground(backgroundCentreClair);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                panelRetour.setBackground(backgroundCentre);
+            }
+        });
+        panelHaut.add(panelRetour, BorderLayout.WEST);
+        conteneur.add(panelHaut, BorderLayout.NORTH);
     }
 
     public JPanel getNouveauTourTaille() {
-        return nouveauTourTaille;
+        return conteneur;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent actionEvent) {
-        int userTourTaille = Integer.parseInt(textNouveauTourTaille.getText());
-        ecrireTourTaille(userTourTaille);
-        cl.show(conteneurPanelCentre, "panelCentre"); //On repasse au panelCentre
-        JOptionPane.showMessageDialog(null, "Nouveau tour de taille enregistré !",
-                "Programme de Marche", JOptionPane.INFORMATION_MESSAGE);//Je met le popup qui indique que la marche est enregistrée
-
-        BorderLayout layout = (BorderLayout)panelReg.getLayout();
-        panelReg.remove(layout.getLayoutComponent(BorderLayout.EAST));
-        panelReg.add(new PanelDroiteReg(), BorderLayout.EAST);
-        panelReg.updateUI();
-        SwingUtilities.updateComponentTreeUI(frameReg);
-    }
 
     public void ecrireTourTaille(int tourTaille) {//Change le poids dans le fichier utilisateur.txt et met l'ancien dans ancienPoids.txt
         try {//Le true du filewriter c'est pour ouvrir le fichier en mode append
@@ -82,4 +115,38 @@ public class FonctionNouveauTourTaille implements ActionListener {
         }
     }
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        int userTourTaille = Integer.parseInt(textNouveauTourTaille.getText());
+        ecrireTourTaille(userTourTaille);
+        cl.show(conteneurPanelCentre, "panelCentre"); //On repasse au panelCentre
+        JOptionPane.showMessageDialog(null, "Nouveau tour de taille enregistré !",
+                "Programme de Marche", JOptionPane.INFORMATION_MESSAGE);//Je met le popup qui indique que la marche est enregistrée
+
+        BorderLayout layout = (BorderLayout)panelReg.getLayout();
+        panelReg.remove(layout.getLayoutComponent(BorderLayout.EAST));
+        panelReg.add(new PanelDroiteReg(), BorderLayout.EAST);
+        panelReg.updateUI();
+        SwingUtilities.updateComponentTreeUI(frameReg);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        panelEnregistrer.setBackground(backgroundCentreClair);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        panelEnregistrer.setBackground(backgroundCentre);
+    }
 }
