@@ -40,5 +40,5 @@ puis pour le lancer utilisez celle ci: `java -cp out/:lib/jfreechart-1.5.3.jar M
 - bug quand on est déja allé sur enregistrer une nouvelle donnée puis qu'on revient a l'acceuil et qu'on va sur poids ou taille et qu'on revient sur enregistrer une nouvelle donnée les placeholder disparaissent  
 - Latex  pour manuel d'utilisation du logiciel.
 - trouver un moyen d'installer le logiciel sur windows
-
+- Faire un panel pour changer son nom, prenom, taille
 
