@@ -17,7 +17,7 @@ import static frame.frameUnreg.FrameUnreg.frameUnreg;
 public class PanelCentreUnreg implements MouseListener {
     JTextField textFieldNom = new JTextField(20);
     JTextField textFieldPrenom = new JTextField(20);
-    JTextField textFieldAge = new JTextField(5);
+    JTextField textFieldAge = new JTextField(10);
     JTextField textFieldPoids = new JTextField(5);
     JPanel panelCentre = new JPanel();
     FrameUnreg frame;
@@ -68,7 +68,7 @@ public class PanelCentreUnreg implements MouseListener {
         textFieldAge.setForeground(Color.white);
         textFieldAge.setFont(police);
         textFieldAge.setHorizontalAlignment(JTextField.CENTER);
-        TextPrompt TpAge = new TextPrompt("Age", textFieldAge);
+        TextPrompt TpAge = new TextPrompt("Taille (cm)", textFieldAge);
         TpAge.setFont(police);
         TpAge.setHorizontalAlignment(JTextField.CENTER);
         TpAge.setShow(TextPrompt.Show.ALWAYS);

@@ -48,7 +48,7 @@ public class GraphPoids {
                     no_repeat.add(ligne[1]);
                     if(j!=1)ligne[1]=ligne[1]+" - "+j;
                     poids[i] = Integer.parseInt(ligne[0]);
-                    System.out.println(ligne[1]);
+                    //System.out.println(ligne[1]);
                     ds.addValue(poids[i], "Poids", ""+ligne[1]); //J'ajoute les valeurs au dataset
                     i += 1;
                 }

@@ -71,7 +71,7 @@ public class FonctionDernierPoids implements ActionListener, MouseListener {
         JPanel panelAnciensPoids = new JPanel(new BorderLayout());
         panelAnciensPoids.setBackground(backgroundCentre);
         JPanel panelGraphAnciensPoids = new JPanel(new GridLayout(1, 1));
-        JPanel panelSudAnciensPoids = new JPanel(new GridLayout(2, 1));
+        JPanel panelSudAnciensPoids = new JPanel(new GridLayout(1, 2));
         panelSudAnciensPoids.setBackground(backgroundCentre);
             JPanel panelSudMoyennePoids = new JPanel(new FlowLayout());
             panelSudMoyennePoids.setBackground(backgroundCentre);
@@ -86,6 +86,18 @@ public class FonctionDernierPoids implements ActionListener, MouseListener {
         labelMoyennePoids.setFont(police);
         panelSudMoyennePoids.add(labelMoyennePoids);
         panelSudAnciensPoids.add(panelSudMoyennePoids);
+
+        //////IMC//////////
+        JPanel panelImc = new JPanel(new FlowLayout());
+        panelImc.setBackground(backgroundCentre);
+        CalculIMC imc = new CalculIMC();
+        JLabel labelImc = new JLabel("IMC : "+ imc.getImc());
+        labelImc.setFont(police);
+        labelImc.setForeground(imc.getColorImc());
+        panelImc.add(labelImc);
+        panelSudAnciensPoids.add(panelImc);
+        ///////
+
         panelAnciensPoids.add(panelSudAnciensPoids, BorderLayout.SOUTH);
 
         return panelAnciensPoids;
