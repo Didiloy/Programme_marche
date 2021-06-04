@@ -63,10 +63,12 @@ public class FonctionDernierTourTaille implements ActionListener, MouseListener 
         panelSudAnciensTourTaille.setPreferredSize(new Dimension(100, 54));
         panelSudAnciensTourTaille.setBackground(backgroundCentre);
 
-
-        GraphTourTaille graphTourTaille = new GraphTourTaille();
-        panelGraphAnciensTourTaille.add(graphTourTaille.getCharPanel());
-        panelAnciensTourTaille.add(panelGraphAnciensTourTaille, BorderLayout.CENTER); //J'ajoute le panel des graphs au panel
+        GraphTourTaille graphTourTaille = new GraphTourTaille(); //ajout du graph et du scrollpane
+        panelGraphAnciensTourTaille = graphTourTaille.getCharPanel();
+        JScrollPane scrollPane = new JScrollPane(panelGraphAnciensTourTaille);
+        panelGraphAnciensTourTaille.setPreferredSize(new Dimension(graphTourTaille.GetLigneTourTaille()*100,1));
+        scrollPane.setBackground(backgroundCentre);
+        panelAnciensTourTaille.add(scrollPane, BorderLayout.CENTER); //J'ajoute le panel des graphs au panel
 
         FonctionMoyenneTourTaille mtt = new FonctionMoyenneTourTaille();
         JLabel moyenneTaille = new JLabel("La moyenne des tours de taille entrés est: " + mtt.getMoyenne() + "cm");

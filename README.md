@@ -33,6 +33,7 @@ puis pour le lancer utilisez celle ci: `java -cp out/:lib/jfreechart-1.5.3.jar M
 - Changer le panel du centre
 - système d'onglet pour les graphs ?
 - essayer de faire les 2 courbes de marche en une seule
+- JScrollPane pour les graphs peut etre
 
 ### A faire
 
@@ -41,5 +42,5 @@ puis pour le lancer utilisez celle ci: `java -cp out/:lib/jfreechart-1.5.3.jar M
 - Latex  pour manuel d'utilisation du logiciel.
 - trouver un moyen d'installer le logiciel sur windows
 - Faire un panel pour changer son nom, prenom, taille
-- JScrollPane pour les graphs peut etre
+
 

@@ -98,7 +98,7 @@ public class FonctionDerniereMarche implements ActionListener, MouseListener {
 
 
         GraphDistanceDate graphDistanceDate = new GraphDistanceDate();
-        GraphTempsDate graphTempsDate = new GraphTempsDate();//J'ajoute le premier graph au panel.
+        //GraphTempsDate graphTempsDate = new GraphTempsDate();//J'ajoute le premier graph au panel.
         panelCentreAnciennesMarches = graphDistanceDate.getCharPanel();
         //panelCentreAnciennesMarches.add(graphTempsDate.getCharPanel());//J'ajoute le 2eme graph au panel
         JScrollPane scrollPane = new JScrollPane(panelCentreAnciennesMarches);

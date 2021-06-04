@@ -77,8 +77,11 @@ public class FonctionDernierPoids implements ActionListener, MouseListener {
             panelSudMoyennePoids.setBackground(backgroundCentre);
 
         GraphPoids graphPoids = new GraphPoids();
-        panelGraphAnciensPoids.add(graphPoids.getCharPanel());
-        panelAnciensPoids.add(panelGraphAnciensPoids, BorderLayout.CENTER); //J'ajoute le panel des graphs au panel
+        panelGraphAnciensPoids = graphPoids.getCharPanel();
+        JScrollPane scrollPane = new JScrollPane(panelGraphAnciensPoids);
+        panelGraphAnciensPoids.setPreferredSize(new Dimension(graphPoids.GetLignePoids()*100,1));
+        scrollPane.setBackground(backgroundCentre);
+        panelAnciensPoids.add(scrollPane, BorderLayout.CENTER); //J'ajoute le panel des graphs au panel
 
         FonctionMoyennePoids moyennePoids = new FonctionMoyennePoids();
         JLabel labelMoyennePoids =new JLabel("La moyenne de tout les poids entrés est "+ moyennePoids.getMoyenne() + "kg.");
