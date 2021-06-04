@@ -25,7 +25,8 @@ public class GraphDistanceDate {
     public DefaultCategoryDataset createDataset() {
         DefaultCategoryDataset ds = new DefaultCategoryDataset();
         File f = new File("programme_papy/donnee/marche.txt");
-        Double[] tempsMarche = new Double[GetLigneMarche()]; //C'est en réalité la distance
+        Double[] distanceMarche = new Double[GetLigneMarche()]; //C'est en réalité la distance
+        Double[] tempsMarche = new Double[GetLigneMarche()];
         String [] tmp;
         if (f.isFile()) {
             InputStreamReader streamReader = null;
@@ -46,8 +47,10 @@ public class GraphDistanceDate {
                     }
                     no_repeat.add(tmp[2]);
                     if(j!=1)tmp[2]=tmp[2]+" - "+j;
-                    tempsMarche[i] = Double.parseDouble(tmp[0]);
-                    ds.addValue(tempsMarche[i], "Distance marché", tmp[2]); //J'ajoute les valeurs à utilisé dans la courbe
+                    distanceMarche[i] = Double.parseDouble(tmp[0]);
+                    tempsMarche[i] = Double.parseDouble(tmp[1])*10;
+                    ds.addValue(distanceMarche[i], "Distance marché", tmp[2]); //J'ajoute les valeurs à utilisé dans la courbe
+                    ds.addValue(tempsMarche[i],"Temps marché", tmp[2]);
                     i += 1;
                 }
                 br.close();
