@@ -91,7 +91,8 @@ public class FonctionDerniereMarche implements ActionListener, MouseListener {
     public JPanel getGraphMarche(){
         JPanel panelAnciennesMarches = new JPanel(new BorderLayout());
         panelAnciennesMarches.setBackground(backgroundCentre);
-        JPanel panelCentreAnciennesMarches = new JPanel(new GridLayout(1, 2, 2, 2));
+        JPanel panelCentreAnciennesMarches = new JPanel(new FlowLayout());
+        //JPanel panelCentreAnciennesMarches = new JPanel(new GridLayout(1, 1));
         panelCentreAnciennesMarches.setBackground(backgroundCentre);
         JPanel panelSudAnciennesMarches = new JPanel();
 
@@ -99,8 +100,10 @@ public class FonctionDerniereMarche implements ActionListener, MouseListener {
         GraphDistanceDate graphDistanceDate = new GraphDistanceDate();
         GraphTempsDate graphTempsDate = new GraphTempsDate();//J'ajoute le premier graph au panel.
         panelCentreAnciennesMarches.add(graphDistanceDate.getCharPanel());
-        panelCentreAnciennesMarches.add(graphTempsDate.getCharPanel());//J'ajoute le 2eme graph au panel
-        panelAnciennesMarches.add(panelCentreAnciennesMarches, BorderLayout.CENTER); //J'ajoute le panel des graphs au panel
+        //panelCentreAnciennesMarches.add(graphTempsDate.getCharPanel());//J'ajoute le 2eme graph au panel
+        JScrollPane scrollPane = new JScrollPane(panelCentreAnciennesMarches);
+        scrollPane.setBackground(backgroundCentre);
+        panelAnciennesMarches.add(scrollPane, BorderLayout.CENTER); //J'ajoute le panel des graphs au panel
 
         panelSudAnciennesMarches.setPreferredSize(new Dimension(100, 150));
         panelSudAnciennesMarches.setBackground(backgroundCentre);
