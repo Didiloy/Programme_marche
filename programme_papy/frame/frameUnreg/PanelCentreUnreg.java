@@ -166,14 +166,20 @@ public class PanelCentreUnreg implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        String userNom = textFieldNom.getText();
-        String userPrenom = textFieldPrenom.getText();
-        int userAge = Integer.parseInt(textFieldAge.getText());
-        int userPoids = Integer.parseInt(textFieldPoids.getText());
-        frame.Personne p1 = new frame.Personne(userNom, userPrenom, userAge, userPoids);
-        ecrireFichier(p1);
-        frameUnreg.dispose();
-        FrameReg frameReg = new FrameReg();
+        try {
+            String userNom = textFieldNom.getText();
+            String userPrenom = textFieldPrenom.getText();
+            int userAge = Integer.parseInt(textFieldAge.getText());
+            int userPoids = Integer.parseInt(textFieldPoids.getText());
+            frame.Personne p1 = new frame.Personne(userNom, userPrenom, userAge, userPoids);
+            ecrireFichier(p1);
+            frameUnreg.dispose();
+            FrameReg frameReg = new FrameReg();
+        }catch (Exception ex){
+            JOptionPane.showMessageDialog(null, "Veuillez remplir les champs avec le bon format",
+                    "Programme de Marche", JOptionPane.ERROR_MESSAGE);//Je met le popup qui indique que la marche est enregistrée
+
+        }
     }
 
     @Override
