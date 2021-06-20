@@ -26,39 +26,44 @@ public class GraphDistanceDate {
     public DefaultCategoryDataset createDataset() {
         DefaultCategoryDataset ds = new DefaultCategoryDataset();
         File f = new File("programme_papy/donnee/marche.txt");
-        Double[] distanceMarche = new Double[GetLigneMarche()]; //C'est la distance
-        Double[] tempsMarche = new Double[GetLigneMarche()];
-        String [] tmp;
-        if (f.isFile()) {
-            InputStreamReader streamReader = null;
-            try {
-                ArrayList<String> no_repeat = new ArrayList<>();
-                streamReader = new InputStreamReader(new FileInputStream(f));
-                BufferedReader br = new BufferedReader(streamReader);
-                String line;
-                int i = 0;
-                while (br.ready()) {
-                    line = br.readLine();
-                    tmp = line.split(",");
-                    int j=1;
-                    for(String nr : no_repeat){
-                        if(nr.equals(tmp[2])){
-                            j++;
+        if (GetLigneMarche() == 0) {
+            ds = null;
+        }else{
+            Double[] distanceMarche = new Double[GetLigneMarche()]; //C'est la distance
+            Double[] tempsMarche = new Double[GetLigneMarche()];
+            String [] tmp;
+            if (f.isFile()) {
+                InputStreamReader streamReader = null;
+                try {
+                    ArrayList<String> no_repeat = new ArrayList<>();
+                    streamReader = new InputStreamReader(new FileInputStream(f));
+                    BufferedReader br = new BufferedReader(streamReader);
+                    String line;
+                    int i = 0;
+                    while (br.ready()) {
+                        line = br.readLine();
+                        tmp = line.split(",");
+                        int j=1;
+                        for(String nr : no_repeat){
+                            if(nr.equals(tmp[2])){
+                                j++;
+                            }
                         }
+                        no_repeat.add(tmp[2]);
+                        if(j!=1)tmp[2]=tmp[2]+" - "+j;
+                        distanceMarche[i] = Double.parseDouble(tmp[0]);
+                        tempsMarche[i] = Double.parseDouble(tmp[1])*10;
+                        ds.addValue(distanceMarche[i], "Distance marché", tmp[2]); //J'ajoute les valeurs à utilisé dans la courbe
+                        ds.addValue(tempsMarche[i],"Temps marché", tmp[2]); //J'ajoute les valeurs du temps.
+                        i += 1;
                     }
-                    no_repeat.add(tmp[2]);
-                    if(j!=1)tmp[2]=tmp[2]+" - "+j;
-                    distanceMarche[i] = Double.parseDouble(tmp[0]);
-                    tempsMarche[i] = Double.parseDouble(tmp[1])*10;
-                    ds.addValue(distanceMarche[i], "Distance marché", tmp[2]); //J'ajoute les valeurs à utilisé dans la courbe
-                    ds.addValue(tempsMarche[i],"Temps marché", tmp[2]); //J'ajoute les valeurs du temps.
-                    i += 1;
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-                br.close();
-            } catch (IOException e) {
-                e.printStackTrace();
             }
         }
+
         return ds;
     }
     public ChartPanel getCharPanel(){

@@ -26,61 +26,85 @@ public class FonctionDerniereMarche implements ActionListener, MouseListener {
         File f = new File("programme_papy/donnee/marche.txt");
         JLabel labelDerniereMarche = new JLabel();
         if (f.isFile()) {
-            DerniereLigneFichier tmp = new DerniereLigneFichier();
-            String derniereMarche = tmp.derniereLigne("programme_papy/donnee/marche.txt");//aller chercher la derniere marche
-            String derniereMarcheTab[] = new String[3];
-            derniereMarcheTab = derniereMarche.split(",");	//Mettre tout les elements de la derniere marche dans un tableau
+            if (GetLigneMarche() ==0 ){
+                labelDerniereMarche.setFont(new Font("Arial", Font.BOLD, 14));
+                labelDerniereMarche.setForeground(CouleurForegroundLabel);
+                ancienneMarche.setLayout(new GridLayout(1, 1));
+                ancienneMarche.setBackground(CouleurBleu);
+                ancienneMarche.addMouseListener(this);
+                labelDerniereMarche.setText("Il n'y a pas encore de marche enregistrée");
+                ancienneMarche.add(labelDerniereMarche);
+            }else{
+                DerniereLigneFichier tmp = new DerniereLigneFichier();
+                String derniereMarche = tmp.derniereLigne("programme_papy/donnee/marche.txt");//aller chercher la derniere marche
+                String derniereMarcheTab[] = new String[3];
+                derniereMarcheTab = derniereMarche.split(",");	//Mettre tout les elements de la derniere marche dans un tableau
 
-            int derniereMarcheKm = Integer.parseInt(derniereMarcheTab[0]);//Convertir la dernière marche en km
-            double derniereMarcheKmDouble = ((double)derniereMarcheKm)/1000;
+                int derniereMarcheKm = Integer.parseInt(derniereMarcheTab[0]);//Convertir la dernière marche en km
+                double derniereMarcheKmDouble = ((double)derniereMarcheKm)/1000;
 
-            int hours = Integer.parseInt(derniereMarcheTab[1]) / 60; //Convertir les minutes en heures et minutes
-            int minutes = Integer.parseInt(derniereMarcheTab[1]) % 60;
-            if (hours == 0) {//Si il marche - de 1h on affiche pas les heures
-                if (minutes < 10) {//Si les minutes sont inférieurs a 10
-                    labelDerniereMarche.setText("Le " + derniereMarcheTab[2]+ //Rempliir le label derniere marche
-                            " vous avez marché " + derniereMarcheKmDouble +
-                            " km en " +
-                            "0" + minutes + "min");
-                } else {
-                    labelDerniereMarche.setText("Le " + derniereMarcheTab[2]+ //Rempliir le label derniere marche
-                            " vous avez marché " + derniereMarcheKmDouble +
-                            " km en " +
-                            minutes + "min");
+                int hours = Integer.parseInt(derniereMarcheTab[1]) / 60; //Convertir les minutes en heures et minutes
+                int minutes = Integer.parseInt(derniereMarcheTab[1]) % 60;
+                if (hours == 0) {//Si il marche - de 1h on affiche pas les heures
+                    if (minutes < 10) {//Si les minutes sont inférieurs a 10
+                        labelDerniereMarche.setText("Le " + derniereMarcheTab[2]+ //Rempliir le label derniere marche
+                                " vous avez marché " + derniereMarcheKmDouble +
+                                " km en " +
+                                "0" + minutes + "min");
+                    } else {
+                        labelDerniereMarche.setText("Le " + derniereMarcheTab[2]+ //Rempliir le label derniere marche
+                                " vous avez marché " + derniereMarcheKmDouble +
+                                " km en " +
+                                minutes + "min");
+                    }
+
+                    } else {//Si il marche plus de 1h on affiche les heures
+                        if (minutes < 10) {//Si les minutes sont inférieurs a 10
+                            labelDerniereMarche.setText("Le " + derniereMarcheTab[2]+ //Rempliir le label derniere marche
+                                    " vous avez marché " + derniereMarcheKmDouble +
+                                    " km en " +
+                                    hours + "h0" + minutes);
+                        } else {//Si les minutes sont sup a 10 et l'heure aussi
+                            labelDerniereMarche.setText("Le " + derniereMarcheTab[2]+ //Rempliir le label derniere marche
+                                    " vous avez marché " + derniereMarcheKmDouble +
+                                    " km en " +
+                                    hours + "h" + minutes);
+                        }
+
+                    }
+                    labelDerniereMarche.setFont(new Font("Arial", Font.BOLD, 14));
+                    labelDerniereMarche.setForeground(CouleurForegroundLabel);
+                    ancienneMarche.setLayout(new GridLayout(1, 1));
+                    ancienneMarche.setBackground(CouleurBleu);
+                    ancienneMarche.addMouseListener(this);
+                    ancienneMarche.add(labelDerniereMarche);
                 }
-
-            } else {//Si il marche plus de 1h on affiche les heures
-                if (minutes < 10) {//Si les minutes sont inférieurs a 10
-                    labelDerniereMarche.setText("Le " + derniereMarcheTab[2]+ //Rempliir le label derniere marche
-                            " vous avez marché " + derniereMarcheKmDouble +
-                            " km en " +
-                            hours + "h0" + minutes);
-                } else {//Si les minutes sont sup a 10 et l'heure aussi
-                    labelDerniereMarche.setText("Le " + derniereMarcheTab[2]+ //Rempliir le label derniere marche
-                            " vous avez marché " + derniereMarcheKmDouble +
-                            " km en " +
-                            hours + "h" + minutes);
-                }
-
             }
-            labelDerniereMarche.setFont(new Font("Arial", Font.BOLD, 14));
-            labelDerniereMarche.setForeground(CouleurForegroundLabel);
-            ancienneMarche.setLayout(new GridLayout(1, 1));
-            ancienneMarche.setBackground(CouleurBleu);
-            ancienneMarche.addMouseListener(this);
-            ancienneMarche.add(labelDerniereMarche);
-        } else {//Si il n'y a pas d'ancienne marche
-            labelDerniereMarche.setFont(new Font("Arial", Font.BOLD, 14));
-            labelDerniereMarche.setForeground(CouleurForegroundLabel);
-            ancienneMarche.setLayout(new GridLayout(1, 1));
-            ancienneMarche.setBackground(CouleurBleu);
-            ancienneMarche.addMouseListener(this);
-            labelDerniereMarche.setText("Il n'y a pas encore de marche enregistrée");
-            ancienneMarche.add(labelDerniereMarche);
-        }
+
 
     }
 
+    private int GetLigneMarche() {
+        try {
+            int i = 0;
+            File file = new File("programme_papy/donnee/marche.txt");
+            InputStreamReader streamReader = new InputStreamReader(new FileInputStream(file));
+            BufferedReader br = new BufferedReader(streamReader);
+            String line = new String();
+            while (br.ready()) {
+                line = br.readLine();
+                i += 1;
+            }
+            br.close();
+            return i;
+        }
+        catch (IOException e)//Si il y a une erreur on la récupère.
+        {
+            //Print the error message
+            System.out.print(e.getMessage());
+            return 0;
+        }
+    }
 
 
     @Override

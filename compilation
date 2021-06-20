@@ -1,2 +1,7 @@
+Linux
 javac -d out/ -cp lib/jfreechart-1.5.3.jar  -sourcepath programme_papy **/*.java
 java -cp out/:lib/jfreechart-1.5.3.jar Main
+
+Windows
+javac -d out -cp lib\jfreechart-1.5.3.jar;out @sources.txt
+java -cp out/;lib/jfreechart-1.5.3.jar Main
