@@ -26,7 +26,7 @@ public class GraphDistanceDate {
     public DefaultCategoryDataset createDataset() {
         DefaultCategoryDataset ds = new DefaultCategoryDataset();
         File f = new File("programme_papy/donnee/marche.txt");
-        if (GetLigneMarche() == 0) {
+        if (GetLigneMarche() == 0) {//Si il n'y a aucune marche dans le fichier
             ds = null;
         }else{
             Double[] distanceMarche = new Double[GetLigneMarche()]; //C'est la distance

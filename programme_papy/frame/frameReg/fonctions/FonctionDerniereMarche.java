@@ -26,7 +26,7 @@ public class FonctionDerniereMarche implements ActionListener, MouseListener {
         File f = new File("programme_papy/donnee/marche.txt");
         JLabel labelDerniereMarche = new JLabel();
         if (f.isFile()) {
-            if (GetLigneMarche() ==0 ){
+            if (GetLigneMarche() ==0 ){//Si il n'y a aucune marche dans le fichier
                 labelDerniereMarche.setFont(new Font("Arial", Font.BOLD, 14));
                 labelDerniereMarche.setForeground(CouleurForegroundLabel);
                 ancienneMarche.setLayout(new GridLayout(1, 1));
