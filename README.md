@@ -38,12 +38,13 @@ puis pour le lancer utilisez celle ci: `java -cp out/;lib/jfreechart-1.5.3.jar M
 - système d'onglet pour les graphs ?
 - essayer de faire les 2 courbes de marche en une seule
 - JScrollPane pour les graphs peut etre
-- bug supprime les marches sans supprimer le fichier
-
-### A faire
-- bug quand on est déja allé sur enregistrer une nouvelle donnée puis qu'on revient a l'acceuil et qu'on va sur poids ou taille et qu'on revient sur enregistrer une nouvelle donnée les placeholder disparaissent  
 - Latex  pour manuel d'utilisation du logiciel.
 - trouver un moyen d'installer le logiciel sur windows
+
+### A faire
+
+- bug supprime les marches sans supprimer le fichier
+- bug quand on est déja allé sur enregistrer une nouvelle donnée puis qu'on revient a l'acceuil et qu'on va sur poids ou taille et qu'on revient sur enregistrer une nouvelle donnée les placeholder disparaissent  
 - Faire un panel pour changer son nom, prenom, taille
 
 
